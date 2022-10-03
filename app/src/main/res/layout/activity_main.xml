@@ -25,12 +25,13 @@
         android:id="@+id/imageView"
         android:layout_width="192dp"
         android:layout_height="227dp"
+        android:contentDescription="@string/logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.15"
-        app:srcCompat="@mipmap/ic_logo_round" />
+        app:srcCompat="@mipmap/ic_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
