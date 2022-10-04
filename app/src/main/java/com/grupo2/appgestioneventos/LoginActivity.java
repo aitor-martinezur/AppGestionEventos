@@ -1,16 +1,6 @@
 package com.grupo2.appgestioneventos;
 
-import android.app.AlertDialog;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.Drawable;
-import android.net.wifi.p2p.WifiP2pManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
