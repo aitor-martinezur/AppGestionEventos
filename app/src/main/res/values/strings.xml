@@ -3,4 +3,7 @@
     <string name="todo">TODO</string>
     <string name="logo">logo</string>
     <string name="prueba">PRUEBA</string>
+    <string name="email">Email</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="iniciar_sesi_n">Iniciar Sesión</string>
 </resources>

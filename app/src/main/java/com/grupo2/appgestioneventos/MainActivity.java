@@ -31,8 +31,36 @@ public class MainActivity extends AppCompatActivity {
         if(control) {
             //se queda en espera unos segundos y pasa a la siguiente pantalla
             Handler handler = new Handler();
-            handler.postDelayed(() -> startActivity(new Intent(MainActivity.this, LoginActivity.class)), 3500); //3,5 segundos
+            handler.postDelayed(() -> startActivity(new Intent(MainActivity.this, LoginActivity.class)), 2500); //2,5 segundos
         }
         MainActivity.control = false;
     } 
 }
+
+/*
+    METER DATOS EN LA BASE DE DATOS
+    -------------------------------
+    INSTANCIA BaseDatos ->
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+    RECOGER DATOS ->
+    Map<String, Object> user = new HashMap<>();
+    user.put("name", user.getText().toString());
+    ...
+
+    ENVIAR DATOS ->
+    db.collection("coleccion").document("documento").set(datos)
+    .addOnSuccessListener(new OnSuccessListener<Void>(){
+        @Override
+        public void onSuccess(Void aVoid){
+        Log.d(TAG, "LLAMADA EXITOSA");
+        }
+    })
+    .addOnFailureListener(new OnFailureListener<Void>(){
+        @Override
+        public void onFailure(Void aVoid){
+        Log.d(TAG, "LLAMADA ERRONEA");
+        }
+    })
+
+*/
