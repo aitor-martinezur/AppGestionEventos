@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -37,7 +38,9 @@ public class MainActivity extends AppCompatActivity {
 
         //lama a la funcion para que pase a la siguiente pantalla
         Map<String, Object> usuarios = carga(control, db);
-
+        for (int i=0; i<usuarios.size(); i++){
+            System.out.println(usuarios.get(Integer.toString(i)).toString());
+        }
     }
 
     //funcion que espera un tiempo especifico y pasa a la siguiente pantalla
@@ -58,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
     //funcion para cargar los datos de los usuarios de la base de datos firebase
     protected Map cargarUsuarios(FirebaseFirestore db){
         final String TAG = "MyActivity";
-        Map<String, Object> usuariosa = new HashMap<>();
-        Map<String, Object> finalUsuariosa = usuariosa;
+        Map<String, Object> usuarios = new HashMap<>();
+        final Integer[] i = {0};
         db.collection("usuarios")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -69,7 +72,8 @@ public class MainActivity extends AppCompatActivity {
                             //variable para almacenar los valores recogidos
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 //Log.d(TAG, document.getId() + " => " + document.getData());
-                                finalUsuariosa.put(document.getId(), document.getData());
+                                i[0]++;
+                                usuarios.put(document.getId(), document.getData());
                             }
                         } else {
                             Log.d(TAG, "Error getting documents: ", task.getException());
@@ -77,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 });
-        return finalUsuariosa;
+        return usuarios;
     }
 }
 
