@@ -36,27 +36,30 @@ public class MainActivity extends AppCompatActivity {
         progressBar.getProgress();
 
         //lama a la funcion para que pase a la siguiente pantalla
-        HashMap<String, Object> usuarios = carga(control, db);
+        Map<String, Object> usuarios = carga(control, db);
 
     }
 
     //funcion que espera un tiempo especifico y pasa a la siguiente pantalla
-    protected HashMap carga(boolean control, FirebaseFirestore db){
-
+    protected Map carga(boolean control, FirebaseFirestore db){
+        Map<String, Object> usuarios = new HashMap<>();
         if(control) {
             //llama a la funcion que recoge los datos de los usuarios de la base de datos
-            return cargarUsuarios(db);
+            usuarios = cargarUsuarios(db);
 
             //se queda en espera unos segundos y pasa a la siguiente pantalla
             Handler handler = new Handler();
             handler.postDelayed(() -> startActivity(new Intent(MainActivity.this, LoginActivity.class)), 2500); //2,5 segundos
         }
         MainActivity.control = false;
+        return usuarios;
     }
 
     //funcion para cargar los datos de los usuarios de la base de datos firebase
-    protected HashMap cargarUsuarios(FirebaseFirestore db){
+    protected Map cargarUsuarios(FirebaseFirestore db){
         final String TAG = "MyActivity";
+        Map<String, Object> usuariosa = new HashMap<>();
+        Map<String, Object> finalUsuariosa = usuariosa;
         db.collection("usuarios")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -64,17 +67,17 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             //variable para almacenar los valores recogidos
-                            Map<String, Object> usuarios = new HashMap<>();
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 //Log.d(TAG, document.getId() + " => " + document.getData());
-                                usuarios.put(document.getId(), document.getData());
+                                finalUsuariosa.put(document.getId(), document.getData());
                             }
                         } else {
                             Log.d(TAG, "Error getting documents: ", task.getException());
                         }
                     }
-                    return usuarios;
+
                 });
+        return finalUsuariosa;
     }
 }
 
