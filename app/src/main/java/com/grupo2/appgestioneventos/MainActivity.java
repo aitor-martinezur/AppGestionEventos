@@ -1,29 +1,84 @@
 package com.grupo2.appgestioneventos;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
+import android.widget.ProgressBar;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
+    //variable para el control de la funcion carga()
+    private static boolean control = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        this.setContentView(R.layout.activity_main);
+
+        //crea la instancia de la base de datos
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        //crea la variable para la progressbar
+        final ProgressBar progressBar = findViewById(R.id.progressBar3);
+        //la pone visible
+        progressBar.getProgress();
+
+        //lama a la funcion para que pase a la siguiente pantalla
+        Map<String, Object> usuarios = carga(control, db);
+
     }
-<<<<<<< Updated upstream
-}
-=======
 
     //funcion que espera un tiempo especifico y pasa a la siguiente pantalla
-    protected void carga(boolean control){
+    protected Map carga(boolean control, FirebaseFirestore db){
+        Map<String, Object> usuarios = new HashMap<>();
         if(control) {
+            //llama a la funcion que recoge los datos de los usuarios de la base de datos
+            usuarios = cargarUsuarios(db);
+
             //se queda en espera unos segundos y pasa a la siguiente pantalla
             Handler handler = new Handler();
             handler.postDelayed(() -> startActivity(new Intent(MainActivity.this, LoginActivity.class)), 2500); //2,5 segundos
         }
         MainActivity.control = false;
-    } 
+        return usuarios;
+    }
+
+    //funcion para cargar los datos de los usuarios de la base de datos firebase
+    protected Map cargarUsuarios(FirebaseFirestore db){
+        final String TAG = "MyActivity";
+        Map<String, Object> usuariosa = new HashMap<>();
+        Map<String, Object> finalUsuariosa = usuariosa;
+        db.collection("usuarios")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            //variable para almacenar los valores recogidos
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                //Log.d(TAG, document.getId() + " => " + document.getData());
+                                finalUsuariosa.put(document.getId(), document.getData());
+                            }
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                    }
+
+                });
+        return finalUsuariosa;
+    }
 }
 
 /*
@@ -52,34 +107,4 @@ public class MainActivity extends AppCompatActivity {
         }
     })
 
-     Recuperar Datos Ejemplo(Puede sobrar alguna llave CUIDADO!!!):
-
-     btnEscribir.setOnClickListener()
-        {
-            @Override
-            public void Onclick(View view){
-                tvNombreApellido = findViewById(R.id.tvNombreApellido);
-                tvEmail=findViewById(R.id.tvEmail);
-
-                db.collection("usuarios").get()
-                    .addCompleteListener(){
-                        @Override
-                        public void onComplete(@NonNull Task<QuerySnapshot> task){
-                            if(task.isSuccesfull()){
-                                for(QueryDocumentSnapshot document: task.getResult()){
-                                    Log.d(TAG,document.getId + "=>" + document.getData());
-                                    Map<String,Object> userRead = document.getData();
-                                    tvNombreApellido.setText(s);
-                                    tvEmail.setText(userRead.get("email").toString());
-                                }
-                            }else{
-                                Log.d(TAG,"Error al recuperar los datos")
-                            }
-                        }
-                    }
-            }
-
-        }
-    }
 */
->>>>>>> Stashed changes
