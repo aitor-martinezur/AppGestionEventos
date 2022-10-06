@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "962449429595",
+    "project_id": "bdprueba-59c2f",
+    "storage_bucket": "bdprueba-59c2f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:962449429595:android:79b03e79b0bbeccd311b7e",
+        "android_client_info": {
+          "package_name": "com.grupo2.appgestioneventos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "962449429595-3ghua68ion09j36900r4l5srmgi385h9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgqXUkl4JKt71aDqMWJ0YXhgBumHJGaQ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "962449429595-3ghua68ion09j36900r4l5srmgi385h9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
