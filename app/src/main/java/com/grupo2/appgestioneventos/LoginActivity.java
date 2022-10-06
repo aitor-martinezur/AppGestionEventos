@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.app.NotificationCompat;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -26,11 +25,7 @@ public class LoginActivity extends MainActivity {
 
         //accion del boton de login
         Button button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                login(v);
-            }
-        });
+        button.setOnClickListener(this::login);
 
     }
 
@@ -41,13 +36,13 @@ public class LoginActivity extends MainActivity {
 
         //comprueba las credenciales
         //si es administrador
-        if ((email.getText().toString().equals("admin"))&&(password.getText().toString().equals("admin"))){
+        if ((email.getText().toString().equals(""))&&(password.getText().toString().equals(""))){
             //NOTIFICACION INICIO SESION ADMINISTRADOR
             Snackbar.make(view, "Sesión iniciada como administrador.", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
         }
         //si es usuario
-        else if((email.getText().toString().equals("user"))&&(password.getText().toString().equals("user"))) {
+        else if((email.getText().toString().equals(""))&&(password.getText().toString().equals(""))) {
             //NOTIFICACION INICIO SESION USUARIO
             Snackbar.make(view, "Sesión iniciada.", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
