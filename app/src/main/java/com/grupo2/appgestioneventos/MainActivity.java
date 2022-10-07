@@ -1,23 +1,11 @@
 package com.grupo2.appgestioneventos;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.widget.ProgressBar;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     //variable para el control de la funcion carga()
@@ -29,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         this.setContentView(R.layout.activity_main);
 
         //crea la instancia de la base de datos
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        //FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         //crea la variable para la progressbar
         final ProgressBar progressBar = findViewById(R.id.progressBar3);

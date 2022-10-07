@@ -1,30 +1,24 @@
 package com.grupo2.appgestioneventos;
 
+import android.annotation.SuppressLint;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.AttachedSurfaceControl;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
 
 public class LoginActivity extends MainActivity {
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,18 +38,20 @@ public class LoginActivity extends MainActivity {
         Button button = findViewById(R.id.button);
         button.setOnClickListener(this::login);
 
-        Map<String, Object>[] usuarios = cargarUsuarios(db);
-
+        ArrayList<String> usuarios = new ArrayList<>();
         TextView textDATOS = findViewById(R.id.textViewDATOS);
-        textDATOS.setText(textDATOS.getText()+"\n"+usuarios[0]);
+        usuarios = cargarUsuarios(db, usuarios, textDATOS);
+
+
+
 
 
     }
 
     //funcion de login que coge las credenciales
     public void login(View view){
-        EditText email = (EditText) findViewById(R.id.editTextTextEmailAddress);
-        EditText password = (EditText) findViewById(R.id.editTextTextPassword);
+        EditText email = findViewById(R.id.editTextTextEmailAddress);
+        EditText password = findViewById(R.id.editTextTextPassword);
 
         //comprueba las credenciales
         //si es administrador
@@ -79,29 +75,41 @@ public class LoginActivity extends MainActivity {
     }
 
     //funcion para cargar los datos de los usuarios de la base de datos firebase
-    protected Map<String, Object>[] cargarUsuarios(FirebaseFirestore db){
+    protected ArrayList<String> cargarUsuarios(FirebaseFirestore db, ArrayList<String> datos, TextView textView){
         final String TAG = "MyActivity";
-        final Map<String, Object>[] usuarios = new Map[]{new HashMap<>()};
+        //estructura de guardado de usuarios
+        //-> [usuario]-[id],[email],[pass] ([cant. usuarios][3])
+        String[][] usuarioFormateado = new String[0][0];
         db.collection("usuarios")
                 .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            //variable para almacenar los valores recogidos
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d(TAG, document.getId() + " => " + document.getData());
-                                usuarios[0] = document.getData();
-                            }
-
-                        } else {
-                            Log.d(TAG, "Error getting documents: ", task.getException());
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            //Log.d(TAG, document.getId() + " => " + document.getData());
+                            datos.add(document.getData().toString());
                         }
                     }
+                    else {
+                        Log.d(TAG, "Error getting documents: ", task.getException());
+                    }
+
+                    //Log.d(TAG, "Array: "+usuarios.get(0));
+                    for(int i=0; i<datos.size(); i++){
+                        Log.d("MyA", "Array(pos->"+i+"): "+ datos.get(i));
+                    }
+                    for(int i=0; i<datos.size(); i++) {
+                        textView.setText(textView.getText() + "\n" + datos.get(i));
+                    }
+                    //limpiar los datos para guardarlos
+                    //-> [usuario]-[id],[email],[pass] ([cant. usuarios][3])
+                    String[][] usuario = new String[datos.size()][3];
+                    for (int i=0; i<datos.size(); i++){
+                        usuario[i][0] = datos.get(i).replace("{", "");
+                    }
+                    for(int i=0; i<3; i++) {
+                        usuario[0][i] = usuario[i][0].replace("{contrasena=admin, id=1, email=admin}","1");
+                    }
                 });
-        //Log.d(TAG, "Array: "+usuarios.get(0));
-        Map<String, Object>[] usuarios2 = usuarios;
-        Log.d(TAG, "Array: "+usuarios[0]);
-        return new Map[]{usuarios[0]};
+        return datos;
     }
 }
