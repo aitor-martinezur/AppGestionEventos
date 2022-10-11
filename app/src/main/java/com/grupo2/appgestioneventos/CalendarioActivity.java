@@ -6,9 +6,9 @@ import android.os.Bundle;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class CalendarioActivity extends MainActivity{
-    private string rojo="#e74c3c";
-    private string verde="#2ecc71";
-    private string azul="#2e86c1";
+    private String rojo="#e74c3c";
+    private String verde="#2ecc71";
+    private String azul="#2e86c1";
     //Fondo paguina
     protected void fondo(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -20,15 +20,15 @@ public class CalendarioActivity extends MainActivity{
         animationDrawable.start();
     }
     //Colores segun eventos
-    public string colores(){
+    public String colores(){
         if(){
 
-        }elseif(){
+        }else if(){
 
-        }elseif(){
+        }else if(){
 
         }else{
-            
+
         }
     }
 }
