@@ -16,6 +16,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class LoginActivity extends MainActivity {
     @SuppressLint("SetTextI18n")
@@ -38,9 +39,13 @@ public class LoginActivity extends MainActivity {
         Button button = findViewById(R.id.button);
         button.setOnClickListener(this::login);
 
-        ArrayList<String> usuarios = new ArrayList<>();
+        ArrayList<Usuario> usuarios = new ArrayList<>();
         TextView textDATOS = findViewById(R.id.textViewDATOS);
-        usuarios = cargarUsuarios(db, usuarios, textDATOS);
+        textDATOS.setVisibility(View.INVISIBLE);
+        usuarios = cargarUsuarios(db, textDATOS);
+        for (int i = 0; i<usuarios.size(); i++){
+            Log.d("mya", "pr"+i+" "+usuarios.get(i).toString());
+        }
 
 
 
@@ -75,41 +80,29 @@ public class LoginActivity extends MainActivity {
     }
 
     //funcion para cargar los datos de los usuarios de la base de datos firebase
-    protected ArrayList<String> cargarUsuarios(FirebaseFirestore db, ArrayList<String> datos, TextView textView){
+    protected ArrayList<Usuario> cargarUsuarios(FirebaseFirestore db, TextView textView){
         final String TAG = "MyActivity";
-        //estructura de guardado de usuarios
-        //-> [usuario]-[id],[email],[pass] ([cant. usuarios][3])
-        String[][] usuarioFormateado = new String[0][0];
+        ArrayList<Usuario> usuarios = new ArrayList<>();
         db.collection("usuarios")
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             //Log.d(TAG, document.getId() + " => " + document.getData());
-                            datos.add(document.getData().toString());
+                            Usuario usuario = new Usuario(Integer.parseInt(document.getString("id")), document.getString("email").toString(), document.getString("contrasena").toString(), document.getString("nombre").toString(), document.getString("apellido").toString());
+                            usuarios.add(usuario);
                         }
                     }
                     else {
                         Log.d(TAG, "Error getting documents: ", task.getException());
                     }
-
-                    //Log.d(TAG, "Array: "+usuarios.get(0));
-                    for(int i=0; i<datos.size(); i++){
-                        Log.d("MyA", "Array(pos->"+i+"): "+ datos.get(i));
-                    }
-                    for(int i=0; i<datos.size(); i++) {
-                        textView.setText(textView.getText() + "\n" + datos.get(i));
-                    }
-                    //limpiar los datos para guardarlos
-                    //-> [usuario]-[id],[email],[pass] ([cant. usuarios][3])
-                    String[][] usuario = new String[datos.size()][3];
-                    for (int i=0; i<datos.size(); i++){
-                        usuario[i][0] = datos.get(i).replace("{", "");
-                    }
-                    for(int i=0; i<3; i++) {
-                        usuario[0][i] = usuario[i][0].replace("{contrasena=admin, id=1, email=admin}","1");
+                    for (int i=0; i<usuarios.size(); i++){
+                        Log.d("MYA", ""+i+" --> "+usuarios.get(i).toString());
                     }
                 });
-        return datos;
+        for (int i = 0; i<usuarios.size(); i++){
+            Log.d("mya", "pr"+i+" "+usuarios.get(i).toString());
+        }
+        return usuarios;
     }
 }
