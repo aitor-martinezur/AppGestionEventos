@@ -66,6 +66,7 @@ public class LoginActivity extends MainActivity {
             Snackbar.make(view, "Sesión iniciada como administrador.", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
             startActivity(new Intent(LoginActivity.this, MenuActivity.class));
+            this.finish();
         }
         //si es usuario
         else if((email.getText().toString().equals("user"))&&(password.getText().toString().equals("user"))) {
