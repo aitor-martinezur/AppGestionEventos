@@ -16,7 +16,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class LoginActivity extends MainActivity {
     @SuppressLint("SetTextI18n")
@@ -35,26 +34,30 @@ public class LoginActivity extends MainActivity {
         animationDrawable.setExitFadeDuration(4000);
         animationDrawable.start();
 
-        //accion del boton de login
-        Button button = findViewById(R.id.button);
-        button.setOnClickListener(this::login);
-
         ArrayList<Usuario> usuarios = new ArrayList<>();
         TextView textDATOS = findViewById(R.id.textViewDATOS);
         textDATOS.setVisibility(View.INVISIBLE);
+
+        //accion del boton de login
+        Button button = findViewById(R.id.button);
+        ArrayList<Usuario> finalUsuarios = usuarios;
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //lama a la funcion de login
+                login(v, finalUsuarios);
+            }
+        });
+
+        //carga los usuarios de la base de datos
         usuarios = cargarUsuarios(db, textDATOS);
-        for (int i = 0; i<usuarios.size(); i++){
-            Log.d("mya", "pr"+i+" "+usuarios.get(i).toString());
+
+        for (int i = 0; i < usuarios.size(); i++) {
+            Log.d("mya", "pr" + i + " " + usuarios.get(i).toString());
         }
-
-
-
-
-
     }
 
-    //funcion de login que coge las credenciales
-    public void login(View view){
+    //funcion de login que coge las credenciales y las comprueba para hacer el inicio de sesion
+    public void login(View view, ArrayList<Usuario> usuarios){
         EditText email = findViewById(R.id.editTextTextEmailAddress);
         EditText password = findViewById(R.id.editTextTextPassword);
 
@@ -80,28 +83,35 @@ public class LoginActivity extends MainActivity {
     }
 
     //funcion para cargar los datos de los usuarios de la base de datos firebase
-    protected ArrayList<Usuario> cargarUsuarios(FirebaseFirestore db, TextView textView){
+    public ArrayList<Usuario> cargarUsuarios(FirebaseFirestore db, TextView textView){
         final String TAG = "MyActivity";
-        ArrayList<Usuario> usuarios = new ArrayList<>();
+        final ArrayList<Usuario> usuarios = new ArrayList<>();
+        //llamada a la base de datos para recoger la informacion
         db.collection("usuarios")
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             //Log.d(TAG, document.getId() + " => " + document.getData());
-                            Usuario usuario = new Usuario(Integer.parseInt(document.getString("id")), document.getString("email").toString(), document.getString("contrasena").toString(), document.getString("nombre").toString(), document.getString("apellido").toString());
+                            //crea un usuario con la informacion recogida en esa posicion del for
+                            Usuario usuario = new Usuario(Integer.parseInt(document.getString("id")), document.getString("email"), document.getString("contrasena"), document.getString("nombre"), document.getString("apellido"));
+                            //añade el usuario creado al ArrayList de usuarios
                             usuarios.add(usuario);
                         }
                     }
                     else {
                         Log.d(TAG, "Error getting documents: ", task.getException());
                     }
+                    //PRUEBAS
                     for (int i=0; i<usuarios.size(); i++){
                         Log.d("MYA", ""+i+" --> "+usuarios.get(i).toString());
+                        //textView.setText(textView.getText()+"\n"+usuarios.get(i).toString());
                     }
                 });
-        for (int i = 0; i<usuarios.size(); i++){
-            Log.d("mya", "pr"+i+" "+usuarios.get(i).toString());
+        Log.d("MYAC_PRUEBA", ""+usuarios.size());
+        for (int i=0; i<usuarios.size(); i++){
+            Log.d("MYA2", ""+i+" --> "+usuarios.get(i).toString());
+            //textView.setText(textView.getText()+"\n"+usuarios.get(i).toString());
         }
         return usuarios;
     }

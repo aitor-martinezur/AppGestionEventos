@@ -7,7 +7,9 @@ public class Usuario {
     String nombre;
     String apellido;
 
+    //constructor
     public Usuario(int paramID, String paramEmail, String paramContrasenia, String paramNombre, String paramApellido){
+        id = paramID;
         email = paramEmail;
         contrasenia = paramContrasenia;
         nombre = paramNombre;
