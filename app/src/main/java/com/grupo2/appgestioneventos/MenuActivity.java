@@ -1,12 +1,16 @@
 package com.grupo2.appgestioneventos;
 
+import android.annotation.SuppressLint;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.LinearLayout;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -24,7 +28,13 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setContentView(R.layout.activity_login);
+
+        //establece el fondo animado con sus parametros
+        //LinearLayout constraintLayout = findViewById(R.id.nav_header_menu_id);
+        //AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
+        //animationDrawable.setEnterFadeDuration(2000);
+        //animationDrawable.setExitFadeDuration(4000);
+        //animationDrawable.start();
 
         binding = ActivityMenuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -37,7 +47,7 @@ public class MenuActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        DrawerLayout drawer = binding.drawerLayout;
+        DrawerLayout drawer = binding.menuLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.

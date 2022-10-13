@@ -1,27 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.grupo2.appgestioneventos">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppGestionEventos"
         tools:targetApi="31">
-<<<<<<< Updated upstream
-=======
-        <activity
-            android:name=".MenuActivity"
-            android:exported="false"
-            android:label="@string/title_activity_menu"
-            android:theme="@style/Theme.AppGestionEventos.NoActionBar" />
         <!-- ACTIVIDAD MAIN -->
->>>>>>> Stashed changes
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -31,16 +22,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< Updated upstream
-=======
 
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" /> <!-- ACTIVIDAD PANTALLA LOGIN -->
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/Theme.Design.NoActionBar"></activity>
->>>>>>> Stashed changes
+            android:theme="@style/Theme.Design.NoActionBar" />
+
+        <activity
+            android:name=".MenuActivity"
+            android:theme="@style/Theme.Design.NoActionBar"/>
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
     </application>
 
 </manifest>

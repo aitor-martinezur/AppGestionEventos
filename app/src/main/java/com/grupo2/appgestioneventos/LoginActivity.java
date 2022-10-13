@@ -1,5 +1,6 @@
 package com.grupo2.appgestioneventos;
 
+import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
@@ -36,10 +37,11 @@ public class LoginActivity extends MainActivity {
 
         //comprueba las credenciales
         //si es administrador
-        if ((email.getText().toString().equals(""))&&(password.getText().toString().equals(""))){
+        if ((email.getText().toString().equals("admin"))&&(password.getText().toString().equals("admin"))){
             //NOTIFICACION INICIO SESION ADMINISTRADOR
             Snackbar.make(view, "Sesión iniciada como administrador.", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
+            startActivity(new Intent(LoginActivity.this, MenuActivity.class));
         }
         //si es usuario
         else if((email.getText().toString().equals(""))&&(password.getText().toString().equals(""))) {

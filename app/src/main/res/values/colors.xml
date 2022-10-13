@@ -10,4 +10,6 @@
     <color name="colorGradientStart">#FA8AB0</color>
     <color name="colorGradientCenter">#FDB2CC</color>
     <color name="colorGradientEnd">#FFFFFF</color>
+    <color name="rosa">#9536F4</color>
+    <color name="green">#4CAF50</color>
 </resources>
