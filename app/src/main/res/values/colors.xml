@@ -10,4 +10,7 @@
     <color name="colorGradientStart">#FA8AB0</color>
     <color name="colorGradientCenter">#FDB2CC</color>
     <color name="colorGradientEnd">#FFFFFF</color>
+    <color name="colorRojo">"#e74c3c</color>
+    <color name="colorVerde">#2ecc71</color>
+    <color name="colorAzul">#2e86c1</color>
 </resources>
