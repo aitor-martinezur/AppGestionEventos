@@ -39,11 +39,9 @@ public class LoginActivity extends MainActivity {
         //accion del boton de login
         Button button = findViewById(R.id.button);
         ArrayList<Usuario> finalUsuarios = usuarios;
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                //lama a la funcion de login
-                login(v, finalUsuarios);
-            }
+        button.setOnClickListener(v -> {
+            //lama a la funcion de login
+            login(v, finalUsuarios);
         });
 
         //carga los usuarios de la base de datos
@@ -59,27 +57,39 @@ public class LoginActivity extends MainActivity {
         EditText email = findViewById(R.id.editTextTextEmailAddress);
         EditText password = findViewById(R.id.editTextTextPassword);
 
+        //TODO: HACER LA COMPORBACION DE CREDENCIALES Y ARREGLAR LA BASE DE DATOS PARA QUE DEVUELVA LOS DATOS CORRECTAMENTE
+        //TODO: https://stackoverflow.com/questions/33723139/wait-firebase-async-retrieve-data-in-android
         //comprueba las credenciales
-        //si es administrador
-        if ((email.getText().toString().equals("admin"))&&(password.getText().toString().equals("admin"))){
-            //NOTIFICACION INICIO SESION ADMINISTRADOR
-            Snackbar.make(view, "Sesión iniciada como administrador.", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-            startActivity(new Intent(LoginActivity.this, MenuActivity.class));
-            this.finish();
-        }
-        //si es usuario
-        else if((email.getText().toString().equals("user"))&&(password.getText().toString().equals("user"))) {
-            //NOTIFICACION INICIO SESION USUARIO
-            Snackbar.make(view, "Sesión iniciada.", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-        }
-        //credenciales incorrectas
-        else{
-            //NOTIFICACION CREDENCIALES INCORRECTAS
-            Snackbar.make(view, "El email o la contraseña no son correctos.", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-        }
+        //comprueba el email y contraseña introducidos con el contendio del array de usuarios para hacer la comprobacion
+        /*for(int i=0; i<usuarios.size(); i++) {*/
+            //si es administrador
+            //lo comprueba con la posicion 0 del array directamnte porque el usuario administador siempre va a estar ahi
+            if ((email.getText().toString().equals(/*usuarios.get(0).getEmail())*/"admin") && (password.getText().toString().equals(/*usuarios.get(0).getContrasenia()*/"admin")))) {
+                //NOTIFICACION INICIO SESION ADMINISTRADOR
+                Snackbar.make(view, "Sesión iniciada como administrador.", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                //pone un delay de 5s para que le de tiempo a la notificacion de aparecer e irse
+                startActivity(new Intent(LoginActivity.this, MenuActivity.class));
+                //cierra la actividad
+                this.finish();
+            }
+            //si es usuario
+           /* else if ((email.getText().toString().equals(usuarios.get(i).getEmail())) && (password.getText().toString().equals(usuarios.get(i).getContrasenia()))) {
+                //NOTIFICACION INICIO SESION USUARIO
+                Snackbar.make(view, "Sesión iniciada.", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                //pone un delay de 3s para que le de tiempo a la notificacion de aparecer e irse
+                handler.postDelayed(() -> startActivity(new Intent(LoginActivity.this, MenuActivity.class)), 3000);
+                //cierra la actividad
+                this.finish();
+            }
+            //credenciales incorrectas
+            else {
+                //NOTIFICACION CREDENCIALES INCORRECTAS
+                Snackbar.make(view, "El email o la contraseña no son correctos.", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }*/
+       /* }*/
     }
 
     //funcion para cargar los datos de los usuarios de la base de datos firebase
@@ -108,11 +118,6 @@ public class LoginActivity extends MainActivity {
                         //textView.setText(textView.getText()+"\n"+usuarios.get(i).toString());
                     }
                 });
-        Log.d("MYAC_PRUEBA", ""+usuarios.size());
-        for (int i=0; i<usuarios.size(); i++){
-            Log.d("MYA2", ""+i+" --> "+usuarios.get(i).toString());
-            //textView.setText(textView.getText()+"\n"+usuarios.get(i).toString());
-        }
         return usuarios;
     }
 }
