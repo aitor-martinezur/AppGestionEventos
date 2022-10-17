@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/noResult"
@@ -6,7 +7,10 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_marginTop="80dp"
-    android:paddingHorizontal="20dp">
+    android:paddingHorizontal="20dp"
+    >
+
+
 
     <ImageView
         android:layout_width="150dp"
@@ -20,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:text="No Items"
+        android:text="No hay Eventos"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -29,6 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="You have no items in this category!"
+        android:text="No tienes Eventos en la categoria!!!"
         android:textSize="18sp" />
+
 </LinearLayout>
