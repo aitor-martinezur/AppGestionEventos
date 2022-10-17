@@ -2,48 +2,46 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fondo"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     public user (Quer)
+
     <CalendarView
         android:id="@+id/calendario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/Botonmod"
-        app:layout_constraintTop_toBottomOf="@+id/BotonNav"
-        tools:layout_editor_absoluteX="29dp"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/BotonNav"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#73B4E8"
-        android:text="BotonNav"
-        tools:layout_editor_absoluteX="17dp"
-        tools:layout_editor_absoluteY="19dp"
-        tools:ignore="MissingConstraints" />
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintBottom_toTopOf="@id/Botonmod"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/BotonUsu"
+        app:layout_constraintVertical_bias="0.44"
+        tools:ignore="MissingConstraints"
+        tools:visibility="visible" />
 
     <Button
         android:id="@+id/BotonUsu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
         android:background="#73B4E8"
-        android:text="ButtonUsuarios"
-        app:layout_constraintStart_toEndOf="@+id/BotonNav"
-        tools:layout_editor_absoluteY="19dp"
-        tools:ignore="MissingConstraints" />
+        android:text="@string/iniciar_sesi_n"
+        android:textColor="#424242"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="240dp"
+        tools:layout_editor_absoluteY="19dp" />
 
     <Button
         android:id="@+id/Botonmod"
         android:layout_width="141dp"
-        android:layout_height="46dp"
+        android:layout_height="48dp"
         android:layout_marginTop="580dp"
         android:background="#73B4E8"
-        android:text="BotonAñadir"
+        android:text="@string/common_google_play_services_update_button"
+        android:textColor="#424242"
         app:layout_constraintTop_toBottomOf="@+id/BotonUsu"
-        tools:layout_editor_absoluteX="238dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="238dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

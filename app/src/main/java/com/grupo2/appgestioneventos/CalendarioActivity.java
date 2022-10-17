@@ -48,13 +48,13 @@ public class CalendarioActivity extends MainActivity{
     //}
     //}
     //Colores segun eventos
-    public String colores(String rojo, String verde, String azul){
-        if(){
-
+    public String colores(Time fecha){
+        if(fecha){
+            calendario.color.colorRojo;
         }else if(){
-
+            calendario.color.colorAzul;
         }else if(){
-
+            calendario.color.colorVerde;
         }else{
 
         }
