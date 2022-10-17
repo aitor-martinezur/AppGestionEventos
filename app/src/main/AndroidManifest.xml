@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppGestionEventos"
         tools:targetApi="31">
-        <!--ACTIVIDAD MAIN-->
+        <!-- ACTIVIDAD MAIN -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -22,14 +22,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/Theme.Design.NoActionBar" />
+
+        <activity
+            android:name=".MenuActivity"
+            android:theme="@style/Theme.Design.NoActionBar"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-        <!--ACTIVIDAD PANTALLA LOGIN-->
-        <activity
-            android:name=".LoginActivity"
-            android:theme="@style/Theme.Design.NoActionBar">
-        </activity>
+
     </application>
 
 </manifest>
