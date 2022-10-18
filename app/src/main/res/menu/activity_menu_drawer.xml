@@ -18,11 +18,11 @@
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_user"
             android:textColor="@color/black"
-            android:title="Usuarios" />
+            android:title="Contactos" />
         <item
             android:id="@+id/nav_settings"
             android:icon="@android:drawable/ic_menu_manage"
-            android:textColor="@color/black"
+            android:textColor="#F8000000"
             android:title="Configuración" />
 
     </group>
