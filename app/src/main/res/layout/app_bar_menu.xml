@@ -13,9 +13,18 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include
-        layout="@layout/content_menu"
-        android:layout_width="287dp" />
+    <include layout="@layout/content_menu" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageViewSubMenu"
+        android:layout_width="60dp"
+        android:layout_height="55dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="14dp"
+        android:visibility="visible"
+        app:srcCompat="@drawable/menu_background"
+        tools:ignore="ImageContrastCheck" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -25,7 +34,49 @@
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
         android:backgroundTint="#FA8AB0"
+        android:tint="#FFFFFF"
+        app:rippleColor="#FFFFFF"
         app:srcCompat="@android:drawable/ic_input_add"
+        tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck,DuplicateClickableBoundsCheck"
+        android:contentDescription="TODO" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|end"
+        android:layout_marginTop="540dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#FBC5D8"
+        android:minWidth="48dp"
+        app:srcCompat="@drawable/ic_menu_events"
+        tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck,DuplicateClickableBoundsCheck" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|end"
+        android:layout_marginTop="425dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="21dp"
+        android:backgroundTint="#FBC5D8"
+        android:minWidth="48dp"
+        app:srcCompat="@drawable/ic_menu_user"
+        tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|end"
+        android:layout_marginTop="310dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="26dp"
+        android:backgroundTint="#FBC5D8"
+        android:minWidth="48dp"
+        app:srcCompat="@android:drawable/stat_notify_error"
         tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
 
     <androidx.appcompat.widget.Toolbar
