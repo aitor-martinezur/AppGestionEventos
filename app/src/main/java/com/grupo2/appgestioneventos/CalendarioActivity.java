@@ -1,27 +1,31 @@
 package com.grupo2.appgestioneventos;
 
+import android.content.ContentResolver;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.tv.TvView;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.type.DateTime;
 
 import java.sql.Time;
-
+import java.*;
 public class CalendarioActivity extends MainActivity{
     //Enlace de donde he sacado todo
     //https://developer.android.com/guide/topics/providers/calendar-provider?hl=es-419
+
+
+    //Consulta del calendario
     // Projection array. Creating indices for this array instead of doing
     // dynamic lookups improves performance.
     public static final String[] EVENT_PROJECTION = new String[] {
-            Calendars._ID,                           // 0
-            Calendars.ACCOUNT_NAME,                  // 1
-            Calendars.CALENDAR_DISPLAY_NAME,         // 2
-            Calendars.OWNER_ACCOUNT                  // 3
+            CalendarContract.Calendars._ID,                           // 0
+            CalendarContract.Calendars.ACCOUNT_NAME,                  // 1
+            CalendarContract.Calendars.CALENDAR_DISPLAY_NAME,         // 2
+            CalendarContract.Calendars.OWNER_ACCOUNT                  // 3
     };
-
     // The indices for the projection array above.
     private static final int PROJECTION_ID_INDEX = 0;
     private static final int PROJECTION_ACCOUNT_NAME_INDEX = 1;
@@ -53,6 +57,7 @@ public class CalendarioActivity extends MainActivity{
 
         // Do something with the values...
     }
+
     //Modificacion de un calendario
     private static final String DEBUG_TAG = "MyActivity";
     long calID = 2;
@@ -90,6 +95,7 @@ public class CalendarioActivity extends MainActivity{
     // ... do something with event ID
     //
     //
+
     //Actualizar eventos
     private static final String DEBUG_TAG = "MyActivity";
     long eventID = 188;
