@@ -34,13 +34,6 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //establece el fondo animado con sus parametros
-        //LinearLayout constraintLayout = findViewById(R.id.nav_header_menu_id);
-        //AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
-        //animationDrawable.setEnterFadeDuration(2000);
-        //animationDrawable.setExitFadeDuration(4000);
-        //animationDrawable.start();
-
         binding = ActivityMenuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -88,6 +81,7 @@ public class MenuActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
+    //funcion para que cuando se haga click en el submenu de abajo a la derecha muestre y oculte las opciones
     public void changeSubmenuVisibility(FloatingActionButton fab, FloatingActionButton fab2, FloatingActionButton fab3, FloatingActionButton fab4, ImageView imgV){
         imgV.requestLayout();
         // Converts 252 dip into its equivalent px
