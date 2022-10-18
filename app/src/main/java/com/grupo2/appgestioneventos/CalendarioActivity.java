@@ -1,3 +1,4 @@
+/*
 package com.grupo2.appgestioneventos;
 
 import android.graphics.drawable.AnimationDrawable;
@@ -131,3 +132,4 @@ public class CalendarioActivity extends MainActivity{
         animationDrawable.start();
     }
 }
+*/
