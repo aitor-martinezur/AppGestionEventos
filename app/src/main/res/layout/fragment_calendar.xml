@@ -18,51 +18,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.826" />
-
-    <Button
-        android:id="@+id/BotonUsu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#73B4E8"
-        android:text="@string/iniciar_sesi_n"
-        android:textColor="#424242"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="130dp"
-        tools:layout_editor_absoluteY="102dp" />
-
-    <Button
-        android:id="@+id/Botonmod"
-        android:layout_width="141dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="516dp"
-        android:background="#73B4E8"
-        android:text="@string/common_google_play_services_update_button"
-        android:textColor="#424242"
-        app:layout_constraintTop_toBottomOf="@+id/BotonUsu"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="146dp" />
-
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.424" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
-
-

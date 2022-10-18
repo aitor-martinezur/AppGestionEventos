@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -24,6 +25,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.grupo2.appgestioneventos.databinding.ActivityMenuBinding;
+
+import org.w3c.dom.Text;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -65,12 +68,49 @@ public class MenuActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_menu);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        //recoge true si es admin, false si no lo es
+        //si es admin le deja acceder al menu de crear usuario
+        Boolean admin = false;
+        binding.appBarMenu.fab4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(admin){
+
+                }
+                else{
+                    Snackbar.make(view, "No tienes permisos para acceder a esta función.", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
+            }
+        });
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu, menu);
+
+        //valores de la otra actividad
+        String nombre="";
+        String apellido="";
+        String email="";
+        Boolean admin=null;
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            nombre = extras.getString("keyNombre");
+            apellido = extras.getString("keyApellido");
+            email = extras.getString("keyEmail");
+            admin = extras.getBoolean("keyAdmin");
+            //The key argument here must match that used in the other activity
+        }
+        //pone los valores en el menu desplegable
+        TextView TVNombreApellido = findViewById(R.id.nombreUsuarioMenu);
+        TextView TVEmail = findViewById(R.id.emailUsuarioMenu);
+        TVNombreApellido.setText(nombre+" "+apellido);
+        TVEmail.setText(email);
+
         return true;
     }
 
@@ -90,14 +130,6 @@ public class MenuActivity extends AppCompatActivity {
         float px1 = TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP,
                 dip1,
-                r.getDisplayMetrics()
-        );
-
-        // Converts 55 dip into its equivalent px
-        float dip2 = 55f;
-        float px2 = TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP,
-                dip2,
                 r.getDisplayMetrics()
         );
 

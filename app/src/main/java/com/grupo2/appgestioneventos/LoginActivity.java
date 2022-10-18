@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -38,18 +39,10 @@ public class LoginActivity extends MainActivity {
 
         //accion del boton de login
         Button button = findViewById(R.id.button);
-        ArrayList<Usuario> finalUsuarios = usuarios;
         button.setOnClickListener(v -> {
             //lama a la funcion de login
-            login(v, finalUsuarios);
+            cargarUsuarios(db, v, usuarios);
         });
-
-        //carga los usuarios de la base de datos
-        usuarios = cargarUsuarios(db);
-
-        for (int i = 0; i < usuarios.size(); i++) {
-            Log.d("mya", "pr" + i + " " + usuarios.get(i).toString());
-        }
     }
 
     //funcion de login que coge las credenciales y las comprueba para hacer el inicio de sesion
@@ -57,29 +50,42 @@ public class LoginActivity extends MainActivity {
         EditText email = findViewById(R.id.editTextTextEmailAddress);
         EditText password = findViewById(R.id.editTextTextPassword);
 
-        //TODO: HACER LA COMPORBACION DE CREDENCIALES Y ARREGLAR LA BASE DE DATOS PARA QUE DEVUELVA LOS DATOS CORRECTAMENTE
-        //TODO: https://stackoverflow.com/questions/33723139/wait-firebase-async-retrieve-data-in-android
+        Handler handler = new Handler();
+
+
         //comprueba las credenciales
         //comprueba el email y contraseña introducidos con el contendio del array de usuarios para hacer la comprobacion
-        /*for(int i=0; i<usuarios.size(); i++) {*/
+        for(int i=0; i<usuarios.size(); i++) {
+
+
             //si es administrador
             //lo comprueba con la posicion 0 del array directamnte porque el usuario administador siempre va a estar ahi
-            if ((email.getText().toString().equals(/*usuarios.get(0).getEmail())*/"admin") && (password.getText().toString().equals(/*usuarios.get(0).getContrasenia()*/"admin")))) {
-                //NOTIFICACION INICIO SESION ADMINISTRADOR
-                Snackbar.make(view, "Sesión iniciada como administrador.", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                //pone un delay de 5s para que le de tiempo a la notificacion de aparecer e irse
-                startActivity(new Intent(LoginActivity.this, MenuActivity.class));
+            if ((email.getText().toString().equals(usuarios.get(0).getEmail())/*"admin"*/) && (password.getText().toString().equals(usuarios.get(0).getContrasenia()/*"admin"*/))) {
+                //pasa los valores a la siguiente actividad y la inicia
+                String Vnombre = usuarios.get(i).getNombre();
+                String Vapellido = usuarios.get(i).getApellido();
+                String Vemail = usuarios.get(i).getEmail();
+                Intent k = new Intent(LoginActivity.this, MenuActivity.class);
+                k.putExtra("keyNombre",Vnombre);
+                k.putExtra("keyApellido",Vapellido);
+                k.putExtra("keyEmail",Vemail);
+                k.putExtra("keyAdmin", true);
+                startActivity(k);
                 //cierra la actividad
                 this.finish();
             }
             //si es usuario
-           /* else if ((email.getText().toString().equals(usuarios.get(i).getEmail())) && (password.getText().toString().equals(usuarios.get(i).getContrasenia()))) {
-                //NOTIFICACION INICIO SESION USUARIO
-                Snackbar.make(view, "Sesión iniciada.", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                //pone un delay de 3s para que le de tiempo a la notificacion de aparecer e irse
-                handler.postDelayed(() -> startActivity(new Intent(LoginActivity.this, MenuActivity.class)), 3000);
+            else if ((email.getText().toString().equals(usuarios.get(i).getEmail())) && (password.getText().toString().equals(usuarios.get(i).getContrasenia()))) {
+                //pasa los valores a la siguiente actividad y la inicia
+                String Vnombre = usuarios.get(i).getNombre();
+                String Vapellido = usuarios.get(i).getApellido();
+                String Vemail = usuarios.get(i).getEmail();
+                Intent k = new Intent(LoginActivity.this, MenuActivity.class);
+                k.putExtra("key",Vnombre);
+                k.putExtra("key",Vapellido);
+                k.putExtra("key",Vemail);
+                k.putExtra("keyAdmin", false);
+                startActivity(k);
                 //cierra la actividad
                 this.finish();
             }
@@ -88,14 +94,13 @@ public class LoginActivity extends MainActivity {
                 //NOTIFICACION CREDENCIALES INCORRECTAS
                 Snackbar.make(view, "El email o la contraseña no son correctos.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-            }*/
-       /* }*/
+            }
+        }
     }
 
     //funcion para cargar los datos de los usuarios de la base de datos firebase
-    public ArrayList<Usuario> cargarUsuarios(FirebaseFirestore db){
+    public ArrayList<Usuario> cargarUsuarios(FirebaseFirestore db, View v, ArrayList<Usuario> usuarios){
         final String TAG = "MyActivity";
-        final ArrayList<Usuario> usuarios = new ArrayList<>();
         //llamada a la base de datos para recoger la informacion
         db.collection("usuarios")
                 .get()
@@ -112,11 +117,8 @@ public class LoginActivity extends MainActivity {
                     else {
                         Log.d(TAG, "Error getting documents: ", task.getException());
                     }
-                    //PRUEBAS
-                    for (int i=0; i<usuarios.size(); i++){
-                        Log.d("MYA", ""+i+" --> "+usuarios.get(i).toString());
-                        //textView.setText(textView.getText()+"\n"+usuarios.get(i).toString());
-                    }
+
+                    login(v, usuarios);
                 });
         return usuarios;
     }
