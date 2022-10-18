@@ -17,7 +17,7 @@
     <color name="grey">#C7C7C7</color>
     <color name="darkGrey">#2a2f37</color>
     <color name="hint">#808080</color>
-    <color name="colorRojo">"#e74c3c</color>
+    <color name="colorRojo">#FF0000</color>
     <color name="colorVerde">#2ecc71</color>
     <color name="colorAzul">#2e86c1</color>
 </resources>
