@@ -27,6 +27,7 @@
         <entry key="..\:/Users/in2dm3/Documents/GitHub/AppGestionEventos/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2985" />
         <entry key="..\:/Users/in2dm3/Documents/GitHub/AppGestionEventos/app/src/main/res/mipmap-anydpi-v26/ic_launcher_logo.xml" value="0.147" />
         <entry key="..\:/Users/in2dm3/Documents/GitHub/AppGestionEventos/app/src/main/res/mipmap-anydpi-v26/ic_logo.xml" value="0.2985" />
+<<<<<<< Updated upstream
         <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/drawable/next.xml" value="0.156" />
         <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/drawable/phone.xml" value="0.156" />
         <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/drawable/progress_bar.xml" value="0.156" />
@@ -37,6 +38,9 @@
         <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/activity_noresults.xml" value="0.358695652173913" />
         <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/addevents.xml" value="0.358695652173913" />
         <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/adduser.xml" value="0.358695652173913" />
+=======
+        <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/addevents.xml" value="0.358695652173913" />
+>>>>>>> Stashed changes
         <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/app_bar_menu.xml" value="0.358695652173913" />
         <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/content_menu.xml" value="0.358695652173913" />
         <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/fragment_calendar.xml" value="0.358695652173913" />
