@@ -12,13 +12,13 @@
         tools:layout="@layout/fragment_calendar" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_contactos"
         android:name="com.grupo2.appgestioneventos.ui.Usuarios.UsuariosFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_users" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_eventos"
         android:name="com.grupo2.appgestioneventos.ui.Eventos.EventosFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_events" />

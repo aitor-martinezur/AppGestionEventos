@@ -10,12 +10,12 @@
             android:textColor="@color/black"
             android:title="Calendario" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_eventos"
             android:icon="@drawable/ic_menu_events"
             android:textColor="@color/black"
             android:title="Eventos" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_contactos"
             android:icon="@drawable/ic_menu_user"
             android:textColor="@color/black"
             android:title="Contactos" />
