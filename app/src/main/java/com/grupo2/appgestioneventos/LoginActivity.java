@@ -56,20 +56,13 @@ public class LoginActivity extends MainActivity {
         //comprueba las credenciales
         //comprueba el email y contraseña introducidos con el contendio del array de usuarios para hacer la comprobacion
         for(int i=0; i<usuarios.size(); i++) {
-
-
             //si es administrador
             //lo comprueba con la posicion 0 del array directamnte porque el usuario administador siempre va a estar ahi
-            if ((email.getText().toString().equals(usuarios.get(0).getEmail())/*"admin"*/) && (password.getText().toString().equals(usuarios.get(0).getContrasenia()/*"admin"*/))) {
+            if ((email.getText().toString().equals(usuarios.get(i).getEmail())/*"admin"*/) && (password.getText().toString().equals(usuarios.get(i).getContrasenia()/*"admin"*/))) {
                 //pasa los valores a la siguiente actividad y la inicia
-                String Vnombre = usuarios.get(i).getNombre();
-                String Vapellido = usuarios.get(i).getApellido();
-                String Vemail = usuarios.get(i).getEmail();
                 Intent k = new Intent(LoginActivity.this, MenuActivity.class);
-                k.putExtra("keyNombre",Vnombre);
-                k.putExtra("keyApellido",Vapellido);
-                k.putExtra("keyEmail",Vemail);
-                k.putExtra("keyAdmin", true);
+                k.putExtra("keyUsuarios", usuarios);
+                k.putExtra("keyNumUsuario", i);
                 startActivity(k);
                 //cierra la actividad
                 this.finish();
@@ -77,14 +70,9 @@ public class LoginActivity extends MainActivity {
             //si es usuario
             else if ((email.getText().toString().equals(usuarios.get(i).getEmail())) && (password.getText().toString().equals(usuarios.get(i).getContrasenia()))) {
                 //pasa los valores a la siguiente actividad y la inicia
-                String Vnombre = usuarios.get(i).getNombre();
-                String Vapellido = usuarios.get(i).getApellido();
-                String Vemail = usuarios.get(i).getEmail();
                 Intent k = new Intent(LoginActivity.this, MenuActivity.class);
-                k.putExtra("key",Vnombre);
-                k.putExtra("key",Vapellido);
-                k.putExtra("key",Vemail);
-                k.putExtra("keyAdmin", false);
+                k.putExtra("keyUsuarios",usuarios);
+                k.putExtra("keyNumUsuario", i);
                 startActivity(k);
                 //cierra la actividad
                 this.finish();

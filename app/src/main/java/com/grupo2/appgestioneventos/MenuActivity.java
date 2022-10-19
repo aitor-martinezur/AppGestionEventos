@@ -1,22 +1,18 @@
 package com.grupo2.appgestioneventos;
 
-import android.annotation.SuppressLint;
 import android.content.res.Resources;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.Menu;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -26,7 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.grupo2.appgestioneventos.databinding.ActivityMenuBinding;
 
-import org.w3c.dom.Text;
+import java.util.ArrayList;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -71,12 +67,12 @@ public class MenuActivity extends AppCompatActivity {
 
         //recoge true si es admin, false si no lo es
         //si es admin le deja acceder al menu de crear usuario
-        Boolean admin = false;
         binding.appBarMenu.fab4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(admin){
-
+                if(isAdmin()){
+                    Snackbar.make(view, "admin", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
                 }
                 else{
                     Snackbar.make(view, "No tienes permisos para acceder a esta función.", Snackbar.LENGTH_LONG)
@@ -93,26 +89,41 @@ public class MenuActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu, menu);
 
         //valores de la otra actividad
-        String nombre="";
-        String apellido="";
-        String email="";
-        Boolean admin=null;
+        ArrayList<Usuario> usuarios = new ArrayList<>();
+        int numUsuario = 0;
+        String admin = "";
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            nombre = extras.getString("keyNombre");
-            apellido = extras.getString("keyApellido");
-            email = extras.getString("keyEmail");
-            admin = extras.getBoolean("keyAdmin");
+            usuarios = (ArrayList<Usuario>)getIntent().getExtras().getSerializable("keyUsuarios");
+            numUsuario = extras.getInt("keyNumUsuario");
             //The key argument here must match that used in the other activity
+        }
+        if (numUsuario==0){
+            admin = "true";
+        }
+        else{
+            admin = "false";
         }
         //pone los valores en el menu desplegable
         TextView TVNombreApellido = findViewById(R.id.nombreUsuarioMenu);
         TextView TVEmail = findViewById(R.id.emailUsuarioMenu);
-        TVNombreApellido.setText(nombre+" "+apellido);
-        TVEmail.setText(email);
+        TextView valorAdmin = findViewById(R.id.valorAdmin);
+        valorAdmin.setText(admin);
+        TVNombreApellido.setText(usuarios.get(numUsuario).getNombre()+" "+usuarios.get(numUsuario).getApellido());
+        TVEmail.setText(usuarios.get(numUsuario).getEmail());
 
         return true;
     }
+
+    public boolean isAdmin(){
+        TextView valorAdmin = findViewById(R.id.valorAdmin);
+        CharSequence vAdmin = valorAdmin.getText();
+        String vAdminString = vAdmin.toString();
+        boolean isAdmin = Boolean.parseBoolean(vAdminString);
+
+        return isAdmin;
+    }
+
 
     @Override
     public boolean onSupportNavigateUp() {
