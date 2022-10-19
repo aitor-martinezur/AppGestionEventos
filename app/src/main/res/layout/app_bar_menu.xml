@@ -63,7 +63,7 @@
         android:layout_marginBottom="21dp"
         android:backgroundTint="#FBC5D8"
         android:minWidth="48dp"
-        app:srcCompat="@drawable/ic_menu_user"
+        app:srcCompat="@drawable/ic_contact_button"
         tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -76,7 +76,7 @@
         android:layout_marginBottom="26dp"
         android:backgroundTint="#FBC5D8"
         android:minWidth="48dp"
-        app:srcCompat="@android:drawable/stat_notify_error"
+        app:srcCompat="@drawable/ic_admin_button1"
         tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
 
     <androidx.appcompat.widget.Toolbar
