@@ -14,10 +14,59 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="casual"
+        android:text="TITULO"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.011" />
+
+    <Button
+        android:id="@+id/botonañadir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="19dp"
+        tools:layout_editor_absoluteY="641dp"
+        tools:text="Añadir" />
+
+    <Button
+        android:id="@+id/botonedit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="598dp"
+        android:layout_marginEnd="@dimen/activity_vertical_margin"
+        android:text="Button"
+        app:layout_constraintEnd_toStartOf="@+id/botondelet"
+        app:layout_constraintStart_toEndOf="@+id/botonañadir"
+        app:layout_constraintTop_toBottomOf="@+id/text_gallery"
+        tools:text="Editar" />
+
+    <Button
+        android:id="@+id/botondelet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="598dp"
+        android:text="Button"
+        app:layout_constraintStart_toEndOf="@+id/botonedit"
+        app:layout_constraintTop_toBottomOf="@+id/text_gallery"
+        tools:text="Borrar" />
+
+    <TableLayout
+        android:layout_width="389dp"
+        android:layout_height="568dp"
+        android:addStatesFromChildren="false"
+        android:background="#F1DEEE"
+        android:clickable="false"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:isScrollContainer="true"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="58dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
