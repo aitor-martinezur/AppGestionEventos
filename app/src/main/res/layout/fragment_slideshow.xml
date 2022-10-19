@@ -39,7 +39,7 @@
         android:background="@color/grey" />
 
     <LinearLayout
-        android:id="@+id/orgContact"
+        android:id="@+id/NombreUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="12dp">
@@ -53,7 +53,7 @@
             android:src="@drawable/ic_menu_user" />
 
         <TextView
-            android:id="@+id/contact"
+            android:id="@+id/Usuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nombre de Usuario"

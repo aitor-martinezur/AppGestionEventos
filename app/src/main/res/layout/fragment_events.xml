@@ -22,6 +22,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mis Eventos"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:transitionName="title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.147" />
+
     <LinearLayout
         android:id="@+id/item"
         android:layout_width="match_parent"
@@ -37,7 +53,7 @@
         app:layout_constraintVertical_bias="0.293">
 
         <ImageView
-            android:id="@+id/image"
+            android:id="@+id/imagenevento"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:scaleType="centerCrop"
@@ -52,7 +68,7 @@
             android:layout_marginTop="10dp">
 
             <TextView
-                android:id="@+id/name"
+                android:id="@+id/nombreEvento"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
@@ -83,7 +99,7 @@
                     android:src="@drawable/ticket_quantity" />
 
                 <TextView
-                    android:id="@+id/tickets"
+                    android:id="@+id/NumeroEvento"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -93,7 +109,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
-            android:id="@+id/desc"
+            android:id="@+id/descripcionEvento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
@@ -103,7 +119,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/tipo"
+            android:id="@+id/tipoEvento"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="10dp"
@@ -130,7 +146,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/orgName"
+                    android:id="@+id/NombreUsuario"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:ellipsize="end"
@@ -144,5 +160,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
