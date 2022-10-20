@@ -3,6 +3,7 @@ package com.grupo2.appgestioneventos;
 import java.io.Serializable;
 
 public class Usuario implements Serializable {
+    //variables del usuario
     int id;
     String email;
     String contrasenia;

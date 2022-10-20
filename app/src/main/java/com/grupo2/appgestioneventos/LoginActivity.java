@@ -46,6 +46,10 @@ public class LoginActivity extends MainActivity {
     }
 
     //funcion de login que coge las credenciales y las comprueba para hacer el inicio de sesion
+    /*
+     * @param   view        la vista de la actividad
+     * @param   usuarios    ArrayList del objeto Usuario donde estan guardados todos los usuarios recuperados de la base de datos con su informacion
+     */
     public void login(View view, ArrayList<Usuario> usuarios){
         EditText email = findViewById(R.id.editTextTextEmailAddress);
         EditText password = findViewById(R.id.editTextTextPassword);
@@ -87,6 +91,12 @@ public class LoginActivity extends MainActivity {
     }
 
     //funcion para cargar los datos de los usuarios de la base de datos firebase
+    /*
+     * @param   db          la instancia de la base de datos
+     * @param   v           la vista de la actividad
+     * @param   usuarios    ArrayList donde se van a meter todos los usuarios que se recuperen de la base de datos
+     * @return              el ArrayList de usuarios con todos los datos recuperados de la base de datos
+     */
     public ArrayList<Usuario> cargarUsuarios(FirebaseFirestore db, View v, ArrayList<Usuario> usuarios){
         final String TAG = "MyActivity";
         //llamada a la base de datos para recoger la informacion
@@ -105,7 +115,7 @@ public class LoginActivity extends MainActivity {
                     else {
                         Log.d(TAG, "Error getting documents: ", task.getException());
                     }
-
+                    //llama a la funcion login
                     login(v, usuarios);
                 });
         return usuarios;
