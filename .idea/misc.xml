@@ -35,9 +35,14 @@
         <entry key="..\:/Users/in2dm3/Documents/GitHub/AppGestionEventos/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2985" />
         <entry key="..\:/Users/in2dm3/Documents/GitHub/AppGestionEventos/app/src/main/res/mipmap-anydpi-v26/ic_launcher_logo.xml" value="0.147" />
         <entry key="..\:/Users/in2dm3/Documents/GitHub/AppGestionEventos/app/src/main/res/mipmap-anydpi-v26/ic_logo.xml" value="0.2985" />
+        <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/activity_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/activity_noresults.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/addevents.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/adduser.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/adminevents.xml" value="0.365625" />
+        <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/adminusers.xml" value="0.365625" />
         <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/app_bar_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/content_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/deleteuser.xml" value="0.365625" />
@@ -50,6 +55,8 @@
         <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/fragment_users.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/logout.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/nav_header_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/showevents.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/toolbar.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/menu/activity_menu_drawer.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/menu/menu.xml" value="0.36666666666666664" />
       </map>
