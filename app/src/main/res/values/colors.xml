@@ -12,7 +12,12 @@
     <color name="colorGradientEnd">#FFFFFF</color>
     <color name="rosa">#9536F4</color>
     <color name="green">#4CAF50</color>
-    <color name="colorRojo">"#e74c3c</color>
+    <color name="shimmerGrey">#eeeeee</color>
+    <color name="collapsing_icon">@color/black</color>
+    <color name="grey">#C7C7C7</color>
+    <color name="darkGrey">#2a2f37</color>
+    <color name="hint">#808080</color>
+    <color name="colorRojo">#FF0000</color>
     <color name="colorVerde">#2ecc71</color>
     <color name="colorAzul">#2e86c1</color>
 </resources>

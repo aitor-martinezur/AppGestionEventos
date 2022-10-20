@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
             //se queda en espera unos segundos y pasa a la siguiente pantalla
             Handler handler = new Handler();
             handler.postDelayed(() -> startActivity(new Intent(MainActivity.this, LoginActivity.class)), 2500); //2,5 segundos
+            handler.postDelayed(this::finish,3000); //3 segundos
         }
         MainActivity.control = false;
     }

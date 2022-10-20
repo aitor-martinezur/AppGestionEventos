@@ -1,6 +1,8 @@
 package com.grupo2.appgestioneventos;
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
     int id;
     String email;
     String contrasenia;

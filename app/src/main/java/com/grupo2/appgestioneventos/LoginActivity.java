@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -38,20 +39,10 @@ public class LoginActivity extends MainActivity {
 
         //accion del boton de login
         Button button = findViewById(R.id.button);
-        ArrayList<Usuario> finalUsuarios = usuarios;
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                //lama a la funcion de login
-                login(v, finalUsuarios);
-            }
+        button.setOnClickListener(v -> {
+            //lama a la funcion de login
+            cargarUsuarios(db, v, usuarios);
         });
-
-        //carga los usuarios de la base de datos
-        usuarios = cargarUsuarios(db);
-
-        for (int i = 0; i < usuarios.size(); i++) {
-            Log.d("mya", "pr" + i + " " + usuarios.get(i).toString());
-        }
     }
 
     //funcion de login que coge las credenciales y las comprueba para hacer el inicio de sesion
@@ -59,32 +50,45 @@ public class LoginActivity extends MainActivity {
         EditText email = findViewById(R.id.editTextTextEmailAddress);
         EditText password = findViewById(R.id.editTextTextPassword);
 
+        Handler handler = new Handler();
+
+
         //comprueba las credenciales
-        //si es administrador
-        if ((email.getText().toString().equals("admin"))&&(password.getText().toString().equals("admin"))){
-            //NOTIFICACION INICIO SESION ADMINISTRADOR
-            Snackbar.make(view, "Sesión iniciada como administrador.", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-            startActivity(new Intent(LoginActivity.this, MenuActivity.class));
-        }
-        //si es usuario
-        else if((email.getText().toString().equals("user"))&&(password.getText().toString().equals("user"))) {
-            //NOTIFICACION INICIO SESION USUARIO
-            Snackbar.make(view, "Sesión iniciada.", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-        }
-        //credenciales incorrectas
-        else{
-            //NOTIFICACION CREDENCIALES INCORRECTAS
-            Snackbar.make(view, "El email o la contraseña no son correctos.", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
+        //comprueba el email y contraseña introducidos con el contendio del array de usuarios para hacer la comprobacion
+        for(int i=0; i<usuarios.size(); i++) {
+            //si es administrador
+            //lo comprueba con la posicion 0 del array directamnte porque el usuario administador siempre va a estar ahi
+            if ((email.getText().toString().equals(usuarios.get(i).getEmail())/*"admin"*/) && (password.getText().toString().equals(usuarios.get(i).getContrasenia()/*"admin"*/))) {
+                //pasa los valores a la siguiente actividad y la inicia
+                Intent k = new Intent(LoginActivity.this, MenuActivity.class);
+                k.putExtra("keyUsuarios", usuarios);
+                k.putExtra("keyNumUsuario", i);
+                startActivity(k);
+                //cierra la actividad
+                this.finish();
+            }
+            //si es usuario
+            else if ((email.getText().toString().equals(usuarios.get(i).getEmail())) && (password.getText().toString().equals(usuarios.get(i).getContrasenia()))) {
+                //pasa los valores a la siguiente actividad y la inicia
+                Intent k = new Intent(LoginActivity.this, MenuActivity.class);
+                k.putExtra("keyUsuarios",usuarios);
+                k.putExtra("keyNumUsuario", i);
+                startActivity(k);
+                //cierra la actividad
+                this.finish();
+            }
+            //credenciales incorrectas
+            else {
+                //NOTIFICACION CREDENCIALES INCORRECTAS
+                Snackbar.make(view, "El email o la contraseña no son correctos.", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
         }
     }
 
     //funcion para cargar los datos de los usuarios de la base de datos firebase
-    public ArrayList<Usuario> cargarUsuarios(FirebaseFirestore db){
+    public ArrayList<Usuario> cargarUsuarios(FirebaseFirestore db, View v, ArrayList<Usuario> usuarios){
         final String TAG = "MyActivity";
-        final ArrayList<Usuario> usuarios = new ArrayList<>();
         //llamada a la base de datos para recoger la informacion
         db.collection("usuarios")
                 .get()
@@ -101,17 +105,9 @@ public class LoginActivity extends MainActivity {
                     else {
                         Log.d(TAG, "Error getting documents: ", task.getException());
                     }
-                    //PRUEBAS
-                    for (int i=0; i<usuarios.size(); i++){
-                        Log.d("MYA", ""+i+" --> "+usuarios.get(i).toString());
-                        //textView.setText(textView.getText()+"\n"+usuarios.get(i).toString());
-                    }
+
+                    login(v, usuarios);
                 });
-        Log.d("MYAC_PRUEBA", ""+usuarios.size());
-        for (int i=0; i<usuarios.size(); i++){
-            Log.d("MYA2", ""+i+" --> "+usuarios.get(i).toString());
-            //textView.setText(textView.getText()+"\n"+usuarios.get(i).toString());
-        }
         return usuarios;
     }
 }

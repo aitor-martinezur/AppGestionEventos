@@ -1,16 +1,18 @@
 package com.grupo2.appgestioneventos;
 
-import android.annotation.SuppressLint;
-import android.graphics.drawable.AnimationDrawable;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.Menu;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -19,6 +21,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.grupo2.appgestioneventos.databinding.ActivityMenuBinding;
+
+import java.util.ArrayList;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -29,22 +33,24 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //establece el fondo animado con sus parametros
-        //LinearLayout constraintLayout = findViewById(R.id.nav_header_menu_id);
-        //AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
-        //animationDrawable.setEnterFadeDuration(2000);
-        //animationDrawable.setExitFadeDuration(4000);
-        //animationDrawable.start();
-
         binding = ActivityMenuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        //pone los botones del submenu en invisible, cambia los colores de los iconos y pone el fondo en invisible
+        binding.appBarMenu.fab.setColorFilter(getResources().getColor(R.color.black));
+        binding.appBarMenu.fab2.setVisibility(View.INVISIBLE);
+        binding.appBarMenu.fab2.setColorFilter(getResources().getColor(R.color.black));
+        binding.appBarMenu.fab3.setVisibility(View.INVISIBLE);
+        binding.appBarMenu.fab3.setColorFilter(getResources().getColor(R.color.black));
+        binding.appBarMenu.fab4.setVisibility(View.INVISIBLE);
+        binding.appBarMenu.fab4.setColorFilter(getResources().getColor(R.color.black));
+        binding.appBarMenu.imageViewSubMenu.setVisibility(View.INVISIBLE);
 
         setSupportActionBar(binding.appBarMenu.toolbar);
         binding.appBarMenu.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                changeSubmenuVisibility(binding.appBarMenu.fab, binding.appBarMenu.fab2,binding.appBarMenu.fab3,binding.appBarMenu.fab4, binding.appBarMenu.imageViewSubMenu);
             }
         });
         DrawerLayout drawer = binding.menuLayout;
@@ -52,25 +58,109 @@ public class MenuActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_eventos, R.id.nav_contactos)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_menu);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        //recoge true si es admin, false si no lo es
+        //si es admin le deja acceder al menu de crear usuario
+        binding.appBarMenu.fab4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isAdmin()){
+                    Snackbar.make(view, "admin", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
+                else{
+                    Snackbar.make(view, "No tienes permisos para acceder a esta función.", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
+            }
+        });
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu, menu);
+
+        //valores de la otra actividad
+        ArrayList<Usuario> usuarios = new ArrayList<>();
+        int numUsuario = 0;
+        String admin = "";
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            usuarios = (ArrayList<Usuario>)getIntent().getExtras().getSerializable("keyUsuarios");
+            numUsuario = extras.getInt("keyNumUsuario");
+            //The key argument here must match that used in the other activity
+        }
+        if (numUsuario==0){
+            admin = "true";
+        }
+        else{
+            admin = "false";
+        }
+        //pone los valores en el menu desplegable
+        TextView TVNombreApellido = findViewById(R.id.nombreUsuarioMenu);
+        TextView TVEmail = findViewById(R.id.emailUsuarioMenu);
+        TextView valorAdmin = findViewById(R.id.valorAdmin);
+        valorAdmin.setText(admin);
+        TVNombreApellido.setText(usuarios.get(numUsuario).getNombre()+" "+usuarios.get(numUsuario).getApellido());
+        TVEmail.setText(usuarios.get(numUsuario).getEmail());
+
         return true;
     }
+
+    public boolean isAdmin(){
+        TextView valorAdmin = findViewById(R.id.valorAdmin);
+        CharSequence vAdmin = valorAdmin.getText();
+        String vAdminString = vAdmin.toString();
+        boolean isAdmin = Boolean.parseBoolean(vAdminString);
+
+        return isAdmin;
+    }
+
 
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_menu);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    //funcion para que cuando se haga click en el submenu de abajo a la derecha muestre y oculte las opciones
+    public void changeSubmenuVisibility(FloatingActionButton fab, FloatingActionButton fab2, FloatingActionButton fab3, FloatingActionButton fab4, ImageView imgV){
+        imgV.requestLayout();
+        // Converts 252 dip into its equivalent px
+        float dip1 = 252f;
+        Resources r = getResources();
+        float px1 = TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP,
+                dip1,
+                r.getDisplayMetrics()
+        );
+
+        if ((fab2.getVisibility()==View.INVISIBLE)&&(fab3.getVisibility()==View.INVISIBLE)&&(fab4.getVisibility()==View.INVISIBLE)){
+            fab2.setVisibility(View.VISIBLE);
+            fab3.setVisibility(View.VISIBLE);
+            fab4.setVisibility(View.VISIBLE);
+            fab.setImageResource(android.R.drawable.ic_menu_close_clear_cancel);
+            fab.setColorFilter(getResources().getColor(R.color.black));
+            imgV.getLayoutParams().height = Math.round(px1);
+            imgV.requestLayout();
+            imgV.setVisibility(View.VISIBLE);
+        }
+        else {
+            fab2.setVisibility(View.INVISIBLE);
+            fab3.setVisibility(View.INVISIBLE);
+            fab4.setVisibility(View.INVISIBLE);
+            fab.setImageResource(android.R.drawable.ic_input_add);
+            fab.setColorFilter(getResources().getColor(R.color.black));
+            imgV.setVisibility(View.INVISIBLE);
+        }
     }
 }
