@@ -7,19 +7,17 @@
     android:background="@color/white"
     tools:context=".ui.Calendario.CalendarioFragment">
 
+
         <CalendarView
-            android:id="@+id/calendario"
-            android:layout_width="367dp"
-            android:layout_height="350dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="128dp"
-            app:layout_constraintBottom_toTopOf="@id/Botonmod"
+            android:id="@+id/calendarView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.444"
+            app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints"
-            tools:visibility="visible" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.343" />
 
         <Button
             android:id="@+id/Botonmod"
@@ -28,9 +26,13 @@
             android:background="#73B4E8"
             android:text="@string/common_google_play_services_update_button"
             android:textColor="#424242"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="135dp"
-            tools:layout_editor_absoluteY="635dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.462"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.872"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/text_home"
