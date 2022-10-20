@@ -115,16 +115,6 @@ public class MenuActivity extends AppCompatActivity {
         return true;
     }
 
-    public boolean isAdmin(){
-        TextView valorAdmin = findViewById(R.id.valorAdmin);
-        CharSequence vAdmin = valorAdmin.getText();
-        String vAdminString = vAdmin.toString();
-        boolean isAdmin = Boolean.parseBoolean(vAdminString);
-
-        return isAdmin;
-    }
-
-
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_menu);
@@ -133,6 +123,10 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     //funcion para que cuando se haga click en el submenu de abajo a la derecha muestre y oculte las opciones
+    /*
+     * @param   fab,fab2,fab3,fab4  los botones de la actividad cuales se quieren cambiar la visibilidad
+     * @param   imgV                la imagen que se usa de fondo para los botones cuando estan visibles
+     */
     public void changeSubmenuVisibility(FloatingActionButton fab, FloatingActionButton fab2, FloatingActionButton fab3, FloatingActionButton fab4, ImageView imgV){
         imgV.requestLayout();
         // Converts 252 dip into its equivalent px
@@ -162,5 +156,18 @@ public class MenuActivity extends AppCompatActivity {
             fab.setColorFilter(getResources().getColor(R.color.black));
             imgV.setVisibility(View.INVISIBLE);
         }
+    }
+
+    //funcion que comprueba si el usuario con el que se ha hecho login tiene permisos de administrador para usar la funcionalidad del boton para crear usuarios
+    /*
+     * @return  true si el usuario es administrador, false en caso de que no lo sea
+     */
+    public boolean isAdmin(){
+        TextView valorAdmin = findViewById(R.id.valorAdmin);
+        CharSequence vAdmin = valorAdmin.getText();
+        String vAdminString = vAdmin.toString();
+        boolean isAdmin = Boolean.parseBoolean(vAdminString);
+
+        return isAdmin;
     }
 }
