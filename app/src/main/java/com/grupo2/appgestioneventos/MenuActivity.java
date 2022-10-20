@@ -189,7 +189,7 @@ public class MenuActivity extends AppCompatActivity {
     /*
      * @param   item    item del menu que se conecta con la funcion
      */
-    public void pruebaCerrarSesion(MenuItem item){
+    public void cerraSesion(MenuItem item){
         startActivity(new Intent(MenuActivity.this, LoginActivity.class));
         this.finish();
     }
