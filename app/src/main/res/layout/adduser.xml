@@ -24,6 +24,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:foregroundGravity="center_vertical"
+            android:gravity="center_horizontal"
             android:orientation="vertical">
 
 
@@ -32,6 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/cabin"
                 android:text="Añadir Usuarios"
                 android:textColor="@color/black"
                 android:textSize="25sp"
@@ -46,45 +50,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:text="Nuevo Usuario:"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/NuevoUsuario"
-                    android:layout_width="240dp"
-                    android:layout_height="48dp"
-                    android:autofillHints=""
-                    android:background="@drawable/text_input_background"
-                    android:backgroundTint="#676767"
-                    android:ems="10"
                     android:fontFamily="@font/cabin"
-                    android:inputType="textEmailAddress"
-                    android:minHeight="48dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:textColor="#000000"
-                    android:textColorHighlight="#2FFFFFFF"
-                    android:textColorHint="#99000000"
-                    android:textColorLink="#99000000"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.497"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.357" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="48dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
                     android:text="Email:"
                     android:textColor="@color/black"
                     android:textSize="18sp"
@@ -94,11 +60,13 @@
                     android:id="@+id/NuevoEmail"
                     android:layout_width="240dp"
                     android:layout_height="48dp"
+                    android:layout_marginStart="5dp"
                     android:autofillHints=""
                     android:background="@drawable/text_input_background"
                     android:backgroundTint="#676767"
                     android:ems="10"
                     android:fontFamily="@font/cabin"
+                    android:hint="Email"
                     android:inputType="textEmailAddress"
                     android:minHeight="48dp"
                     android:paddingLeft="10dp"
@@ -124,7 +92,50 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
+                    android:fontFamily="@font/cabin"
                     android:text="Contraseña:"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/NuevaContrasena"
+                    android:layout_width="240dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="5dp"
+                    android:autofillHints=""
+                    android:background="@drawable/text_input_background"
+                    android:backgroundTint="#676767"
+                    android:ems="10"
+                    android:fontFamily="@font/cabin"
+                    android:hint="Contraseña"
+                    android:inputType="textEmailAddress"
+                    android:minHeight="48dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="#000000"
+                    android:textColorHighlight="#2FFFFFFF"
+                    android:textColorHint="#99000000"
+                    android:textColorLink="#99000000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.357" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:fontFamily="@font/cabin"
+                    android:text="Nombre:"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -138,6 +149,7 @@
                     android:backgroundTint="#676767"
                     android:ems="10"
                     android:fontFamily="@font/cabin"
+                    android:hint="Nombre"
                     android:inputType="textEmailAddress"
                     android:minHeight="48dp"
                     android:paddingLeft="10dp"
@@ -153,6 +165,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.357" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -162,20 +175,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:text="Nombre:"
+                    android:fontFamily="@font/cabin"
+                    android:text="Apellido:"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/NuevoContraseña"
+                    android:id="@+id/NuevoApellido"
                     android:layout_width="240dp"
                     android:layout_height="48dp"
+                    android:layout_marginStart="5dp"
                     android:autofillHints=""
                     android:background="@drawable/text_input_background"
                     android:backgroundTint="#676767"
                     android:ems="10"
                     android:fontFamily="@font/cabin"
+                    android:hint="Apellido"
                     android:inputType="textEmailAddress"
                     android:minHeight="48dp"
                     android:paddingLeft="10dp"
@@ -229,10 +245,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
+                    android:contentDescription="boton"
                     android:src="@drawable/next"
                     android:tooltipText="Next"
+                    app:backgroundTint="#F3ADC5"
                     app:elevation="0dp"
                     app:maxImageSize="30sp" />
+
             </RelativeLayout>
 
         </LinearLayout>
