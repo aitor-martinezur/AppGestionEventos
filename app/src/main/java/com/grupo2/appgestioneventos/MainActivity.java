@@ -52,31 +52,3 @@ public class MainActivity extends AppCompatActivity {
 
 
 }
-
-/*
-    METER DATOS EN LA BASE DE DATOS
-    -------------------------------
-    INSTANCIA BaseDatos ->
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-    RECOGER DATOS ->
-    Map<String, Object> user = new HashMap<>();
-    user.put("name", user.getText().toString());
-    ...
-
-    ENVIAR DATOS ->
-    db.collection("coleccion").document("documento").set(datos)
-    .addOnSuccessListener(new OnSuccessListener<Void>(){
-        @Override
-        public void onSuccess(Void aVoid){
-        Log.d(TAG, "LLAMADA EXITOSA");
-        }
-    })
-    .addOnFailureListener(new OnFailureListener<Void>(){
-        @Override
-        public void onFailure(Void aVoid){
-        Log.d(TAG, "LLAMADA ERRONEA");
-        }
-    })
-
-*/
