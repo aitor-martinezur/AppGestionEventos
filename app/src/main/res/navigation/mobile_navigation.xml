@@ -24,7 +24,7 @@
         tools:layout="@layout/fragment_events" />
     <fragment
         android:id="@+id/nav_settings"
-        android:name="com.grupo2.appgestioneventos.ui.gallery.GalleryFragment"
+        android:name="com.grupo2.appgestioneventos.ui.settings.SettingsFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_settings" />
 
