@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <include layout="@layout/toolbar" />
+
 
     <ScrollView
         android:id="@+id/ScrollView2_edit"
@@ -19,6 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintVertical_bias="0.0">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -254,7 +255,7 @@
                         android:background="?android:attr/selectableItemBackground"
                         android:backgroundTint="@android:color/transparent"
                         android:drawablePadding="8dp"
-                        android:text="Añadir"
+                        android:text="Editar"
                         android:textColor="@android:color/black"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -275,6 +276,4 @@
             </androidx.appcompat.widget.Toolbar>
         </LinearLayout>
     </ScrollView>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
