@@ -96,6 +96,7 @@
         app:navigationIcon="@drawable/back_arrow"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:titleMarginStart="0dp"
-        app:titleTextColor="@color/black"></androidx.appcompat.widget.Toolbar>
+        app:titleTextColor="@color/black"
+        app:menu=""></androidx.appcompat.widget.Toolbar>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
