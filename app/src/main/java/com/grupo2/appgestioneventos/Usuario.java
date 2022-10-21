@@ -6,7 +6,7 @@ public class Usuario implements Serializable {
     //variables del usuario
     int id;
     String email;
-    String contrasenia;
+    String contrasena;
     String nombre;
     String apellido;
 
@@ -14,7 +14,7 @@ public class Usuario implements Serializable {
     public Usuario(int paramID, String paramEmail, String paramContrasenia, String paramNombre, String paramApellido){
         id = paramID;
         email = paramEmail;
-        contrasenia = paramContrasenia;
+        contrasena = paramContrasenia;
         nombre = paramNombre;
         apellido = paramApellido;
     }
@@ -35,12 +35,12 @@ public class Usuario implements Serializable {
         this.email = email;
     }
 
-    public String getContrasenia() {
-        return contrasenia;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     public String getNombre() {
@@ -64,7 +64,7 @@ public class Usuario implements Serializable {
         return "Usuario{" +
                 "id=" + id +
                 ", email='" + email + '\'' +
-                ", contrasenia='" + contrasenia + '\'' +
+                ", contrasenia='" + contrasena + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 '}';

@@ -1,10 +1,8 @@
 package com.grupo2.appgestioneventos;
 
-import android.content.ClipData;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,7 +17,6 @@ import com.google.android.material.navigation.NavigationView;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.MenuItemKt;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
@@ -51,12 +48,7 @@ public class MenuActivity extends AppCompatActivity {
         binding.appBarMenu.imageViewSubMenu.setVisibility(View.INVISIBLE);
 
         setSupportActionBar(binding.appBarMenu.toolbar);
-        binding.appBarMenu.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                changeSubmenuVisibility(binding.appBarMenu.fab, binding.appBarMenu.fab2,binding.appBarMenu.fab3,binding.appBarMenu.fab4, binding.appBarMenu.imageViewSubMenu);
-            }
-        });
+        binding.appBarMenu.fab.setOnClickListener(view -> changeSubmenuVisibility(binding.appBarMenu.fab, binding.appBarMenu.fab2,binding.appBarMenu.fab3,binding.appBarMenu.fab4, binding.appBarMenu.imageViewSubMenu));
         DrawerLayout drawer = binding.menuLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
@@ -71,17 +63,17 @@ public class MenuActivity extends AppCompatActivity {
 
         //recoge true si es admin, false si no lo es
         //si es admin le deja acceder al menu de crear usuario
-        binding.appBarMenu.fab4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(isAdmin()){
-                    Snackbar.make(view, "admin", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
-                }
-                else{
-                    Snackbar.make(view, "No tienes permisos para acceder a esta función.", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
-                }
+        binding.appBarMenu.fab4.setOnClickListener(view -> {
+            if(isAdmin()){
+                //pasa los valores a la siguiente actividad y la inicia
+                Intent k = new Intent(MenuActivity.this, AdminUsersActivity.class);
+                ArrayList<Usuario> usuarios = (ArrayList<Usuario>) getIntent().getExtras().getSerializable("keyUsuarios");
+                k.putExtra("keyUsuarios",usuarios);
+                startActivity(k);
+            }
+            else{
+                Snackbar.make(view, "No tienes permisos para acceder a esta función.", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         });
 
@@ -105,10 +97,10 @@ public class MenuActivity extends AppCompatActivity {
         //valores de la otra actividad
         ArrayList<Usuario> usuarios = new ArrayList<>();
         int numUsuario = 0;
-        String admin = "";
+        String admin;
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            usuarios = (ArrayList<Usuario>)getIntent().getExtras().getSerializable("keyUsuarios");
+            usuarios = (ArrayList<Usuario>) getIntent().getExtras().getSerializable("keyUsuarios");
             numUsuario = extras.getInt("keyNumUsuario");
             //The key argument here must match that used in the other activity
         }
@@ -123,7 +115,9 @@ public class MenuActivity extends AppCompatActivity {
         TextView TVEmail = findViewById(R.id.emailUsuarioMenu);
         TextView valorAdmin = findViewById(R.id.valorAdmin);
         valorAdmin.setText(admin);
-        TVNombreApellido.setText(usuarios.get(numUsuario).getNombre()+" "+usuarios.get(numUsuario).getApellido());
+        //nombre y apellido para mostrar
+        String nombreApellido = usuarios.get(numUsuario).getNombre()+" "+usuarios.get(numUsuario).getApellido();
+        TVNombreApellido.setText(nombreApellido);
         TVEmail.setText(usuarios.get(numUsuario).getEmail());
 
         return true;
@@ -180,9 +174,8 @@ public class MenuActivity extends AppCompatActivity {
         TextView valorAdmin = findViewById(R.id.valorAdmin);
         CharSequence vAdmin = valorAdmin.getText();
         String vAdminString = vAdmin.toString();
-        boolean isAdmin = Boolean.parseBoolean(vAdminString);
 
-        return isAdmin;
+        return Boolean.parseBoolean(vAdminString);
     }
 
     //funcion que devuelve a la ventana de login para volver a iniciar sesion
