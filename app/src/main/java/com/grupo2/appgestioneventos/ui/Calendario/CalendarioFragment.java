@@ -25,7 +25,7 @@ public class CalendarioFragment extends Fragment {
         binding = FragmentCalendarBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
+        final TextView textView = binding.textofecha;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }

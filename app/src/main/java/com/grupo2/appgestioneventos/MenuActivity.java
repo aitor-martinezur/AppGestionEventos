@@ -1,9 +1,12 @@
 package com.grupo2.appgestioneventos;
 
+import android.content.ClipData;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.ImageView;
@@ -16,6 +19,7 @@ import com.google.android.material.navigation.NavigationView;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.MenuItemKt;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
@@ -81,7 +85,17 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+        /*//funcionalidad de cerrar sesion en los tres puntos de arriba a la derecha
+        View botonCerrarSesion = findViewById(R.id.action_settings_cerrarSesion);
+        botonCerrarSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MenuActivity.this, LoginActivity.class));
+            }
+        });*/
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -169,5 +183,14 @@ public class MenuActivity extends AppCompatActivity {
         boolean isAdmin = Boolean.parseBoolean(vAdminString);
 
         return isAdmin;
+    }
+
+    //funcion que devuelve a la ventana de login para volver a iniciar sesion
+    /*
+     * @param   item    item del menu que se conecta con la funcion
+     */
+    public void cerraSesion(MenuItem item){
+        startActivity(new Intent(MenuActivity.this, LoginActivity.class));
+        this.finish();
     }
 }
