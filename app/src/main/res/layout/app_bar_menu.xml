@@ -96,7 +96,30 @@
         app:navigationIcon="@drawable/back_arrow"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:titleMarginStart="0dp"
-        app:titleTextColor="@color/black"
-        app:menu=""></androidx.appcompat.widget.Toolbar>
+        app:titleTextColor="@color/black"></androidx.appcompat.widget.Toolbar>
+    <navigation xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/fab"
+        app:startDestination="@id/admiusuarios.xml"
+        tools:ignore="DuplicateIds">
+        <action android:id="@+id/fab4" app:destination="@id/AdmiUsuarios"></action>
+    </navigation>
+    <navigation xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/fab"
+        app:startDestination="@id/adminevents.xml"
+        tools:ignore="DuplicateIds">
+        <action android:id="@+id/fab3" app:destination="@id/AdmiUsuarios"></action>
+    </navigation>
+    <navigation xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/fab"
+        app:startDestination="@id/admincontact.xml"
+        tools:ignore="DuplicateIds">
+        <action android:id="@+id/fab2" app:destination="@id/AdmiUsuarios"></action>
+    </navigation>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
