@@ -10,7 +10,7 @@ public class CalendarioViewModel extends ViewModel {
 
     public CalendarioViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mText.setValue("Tienes estos eventos:");
     }
 
     public LiveData<String> getText() {
