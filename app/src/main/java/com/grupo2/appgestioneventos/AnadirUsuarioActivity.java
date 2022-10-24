@@ -9,6 +9,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
@@ -25,7 +26,7 @@ public class AnadirUsuarioActivity extends AdminUsersActivity {
             usuarios = (ArrayList<Usuario>) getIntent().getExtras().getSerializable("keyUsuarios");
         }
         //referencia a la base de datos
-        DatabaseReference dbr = FirebaseDatabase.getInstance().getReference();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
         //handler
         Handler handler = new Handler();
 
@@ -60,11 +61,11 @@ public class AnadirUsuarioActivity extends AdminUsersActivity {
             }
             else{
                 Usuario usuario = new Usuario(ultimoID+1, nuevoEmail, nuevaContrasena, nuevoNombre, nuevoApellido);
-                FuncionesUsuarios.crearUsuario(usuario, dbr, ultimoID);
+                FuncionesUsuarios.crearUsuario(usuario, db);
                 Snackbar.make(view, "Usuario creado.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 //espera 5 segundos para devolverle a la pestaña anterior
-                handler.postDelayed(() -> startActivity(new Intent(AnadirUsuarioActivity.this, AdminUsersActivity.class)), 5000);
+                //handler.postDelayed(() -> startActivity(new Intent(AnadirUsuarioActivity.this, AdminUsersActivity.class)), 5000);
             }
         });
     }
