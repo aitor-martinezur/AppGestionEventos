@@ -43,7 +43,7 @@ public class FuncionesUsuarios {
     //funcion para actualizar un usuario de la base de datos
     /* 
      * @param   usuario el objeto usuario con toda la informacion para meterlo en la base de datos
-     * @param   dbr     la referencia a la instancia de la base de datos
+     * @param   db      la instancia de la base de datos
      */
     public static void actualizarUsuario(Usuario usuario, FirebaseFirestore db){
         //pasa el objeto usuario actualizado a la base de datos
@@ -116,25 +116,26 @@ public class FuncionesUsuarios {
     //funcion para borrar un usuario de la base de datos
     /*
      * @param   usuario el objeto usuario que se quiere borrar
-     * @param   dbr     la referencia a la instancia de la base de datos
+     * @param   db      la referencia a la base de datos
      */
-    public static void borrarUsuario(Usuario usuario, DatabaseReference dbr){
+    public static void borrarUsuario(Usuario usuario, FirebaseFirestore db){
         //le manda el valor null a la direccion del usuario en la base de datos para borrarlo
-        dbr.child("usuarios").child("usuario"+usuario.getId()).setValue(null);
+        db.collection("usuarios").document("usuario"+(usuario.getId()-2))
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d("MYAC", "DocumentSnapshot successfully deleted!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("MYAC", "Error deleting document", e);
+                    }
+                });
     }
 }
-
-/*
- * referencia a la instancia de la base de datos
-  DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
- * nuevo usuario - 
-  mDatabase.child("users").child(userId).setValue(user);
- * actualizar usuario -
-   mDatabase.child("users").child(userId).child("username").setValue(name);
- * borrar usuario -
-   mDatabase.child("users").child(userId).child("username").setValue(null);
- */
-
 
 /*
     METER DATOS EN LA BASE DE DATOS

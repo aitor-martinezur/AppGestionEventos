@@ -62,7 +62,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/NuevoEmail"
+                    android:id="@+id/NuevoEmailActu"
                     android:layout_width="240dp"
                     android:layout_height="48dp"
                     android:layout_marginStart="5dp"

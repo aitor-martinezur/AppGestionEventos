@@ -77,6 +77,16 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+        //boton administrar eventos
+        binding.appBarMenu.fab2.setOnClickListener(view -> {
+            startActivity(new Intent(MenuActivity.this, AdminEventsActivity.class));
+        });
+
+        //boton administrar contactos
+        binding.appBarMenu.fab3.setOnClickListener(view -> {
+            startActivity(new Intent(MenuActivity.this, AdminContactsActivity.class));
+        });
+
         /*//funcionalidad de cerrar sesion en los tres puntos de arriba a la derecha
         View botonCerrarSesion = findViewById(R.id.action_settings_cerrarSesion);
         botonCerrarSesion.setOnClickListener(new View.OnClickListener() {

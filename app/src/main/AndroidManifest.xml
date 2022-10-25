@@ -33,9 +33,27 @@
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
             android:name=".BorrarUsuarioActivity"
-            android:theme="@style/Theme.Design.NoActionBar" />ç
+            android:theme="@style/Theme.Design.NoActionBar" />
         <activity
             android:name=".AnadirUsuarioActivity"
+            android:theme="@style/Theme.Design.NoActionBar" />
+        <activity
+            android:name=".ActualizarUsuarioActivity"
+            android:theme="@style/Theme.Design.NoActionBar" />
+        <activity
+            android:name=".AdminEventsActivity"
+            android:theme="@style/Theme.Design.NoActionBar" />
+        <activity
+            android:name=".AnadirEventoActivity"
+            android:theme="@style/Theme.Design.NoActionBar" />
+        <activity
+            android:name=".ActualizarEventoActivity"
+            android:theme="@style/Theme.Design.NoActionBar" />
+        <activity
+            android:name=".BorrarEventoActivity"
+            android:theme="@style/Theme.Design.NoActionBar" />
+        <activity
+            android:name=".AdminContactsActivity"
             android:theme="@style/Theme.Design.NoActionBar" />
 
         <meta-data
