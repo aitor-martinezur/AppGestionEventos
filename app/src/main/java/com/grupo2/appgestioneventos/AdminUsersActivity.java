@@ -39,7 +39,10 @@ public class AdminUsersActivity extends MenuActivity {
          botonActualizarUsuario.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
-
+                 //pasa los valores a la siguiente actividad y la inicia
+                 Intent k = new Intent(AdminUsersActivity.this, ActualizarUsuarioActivity.class);
+                 k.putExtra("keyUsuarios", finalUsuarios1);
+                 startActivity(k);
              }
          });
          //funcionalidad del boton borrar usuario
