@@ -51,6 +51,21 @@ public class FuncionesUsuarios {
         DocumentReference referencia = db.collection("usuarios").document("usuario"+(usuario.getId()-2));
 
         //actualiza los campos
+        //ID
+        referencia
+                .update("id", String.valueOf(usuario.getId()))
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d("MYAC-EMAIL", "Actualizado correctamente.");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("MYAC", "Error updating document", e);
+                    }
+                });
         //EMAIL
         referencia
                 .update("email", usuario.getEmail())
