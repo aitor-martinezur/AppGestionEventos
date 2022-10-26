@@ -135,7 +135,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/NuevoNombre"
+                android:id="@+id/NuevoTelefonoContacto"
                 android:layout_width="240dp"
                 android:layout_height="48dp"
                 android:autofillHints=""
@@ -176,7 +176,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/NuevoApellido"
+                android:id="@+id/NuevoEmailContacto"
                 android:layout_width="240dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="5dp"
@@ -235,7 +235,7 @@
                 android:progressDrawable="@drawable/inner_progress" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/next"
+                android:id="@+id/nextCrearCont"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"

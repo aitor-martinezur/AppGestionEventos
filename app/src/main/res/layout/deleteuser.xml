@@ -6,146 +6,144 @@
     android:layout_height="match_parent"
     android:theme="@style/Theme.AppCompat.Light">
 
-    <include layout="@layout/toolbar"></include>
-    <ScrollView
-        android:layout_width="408dp"
-        android:layout_height="668dp"
-        android:fillViewport="true"
+    <include
+        android:id="@+id/include5"
+        layout="@layout/toolbar"
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="5dp"></include>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:foregroundGravity="center_vertical"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:layout_editor_absoluteX="3dp"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintTop_toTopOf="@+id/include5">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/cabin"
+            android:text="Eliminar Usuarios"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/cabin"
+            android:text="Escribe el email y la contraseña del usuario para identificarlo y luego eliminarlo"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:foregroundGravity="center_vertical"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
+            android:layout_marginTop="48dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="24dp"
                 android:fontFamily="@font/cabin"
-                android:text="Eliminar Usuarios"
+                android:text="Email:"
                 android:textColor="@color/black"
-                android:textSize="25sp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/cabin"
-                android:text="Escribe el email y la contraseña del usuario para identificarlo y luego eliminarlo"
-                android:textColor="@color/black"
-                android:textSize="17sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="48dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:fontFamily="@font/cabin"
-                    android:text="Email:"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/NuevoEmailDele"
-                    android:layout_width="240dp"
-                    android:layout_height="48dp"
-                    android:layout_marginStart="5dp"
-                    android:autofillHints=""
-                    android:background="@drawable/text_input_background"
-                    android:backgroundTint="#676767"
-                    android:ems="10"
-                    android:fontFamily="@font/cabin"
-                    android:hint="Email"
-                    android:inputType="textEmailAddress"
-                    android:minHeight="48dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:textColor="#000000"
-                    android:textColorHighlight="#2FFFFFFF"
-                    android:textColorHint="#99000000"
-                    android:textColorLink="#99000000"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.497"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.357" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="48dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:fontFamily="@font/cabin"
-                    android:text="Contraseña:"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/NuevaContrasenaDele"
-                    android:layout_width="240dp"
-                    android:layout_height="48dp"
-                    android:layout_marginStart="5dp"
-                    android:autofillHints=""
-                    android:background="@drawable/text_input_background"
-                    android:backgroundTint="#676767"
-                    android:ems="10"
-                    android:fontFamily="@font/cabin"
-                    android:hint="Contraseña"
-                    android:inputType="textEmailAddress"
-                    android:minHeight="48dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:textColor="#000000"
-                    android:textColorHighlight="#2FFFFFFF"
-                    android:textColorHint="#99000000"
-                    android:textColorLink="#99000000"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.497"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.357" />
-            </LinearLayout>
-            <Button
-                android:id="@+id/borrarUsuario"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="67dp"
-                android:layout_marginBottom="72dp"
-                android:background="@drawable/rounded_button_white"
-                android:fontFamily="@font/montserrat"
-                android:text="Eliminar Usuario"
+            <EditText
+                android:id="@+id/NuevoEmailDele"
+                android:layout_width="240dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="5dp"
+                android:autofillHints=""
+                android:background="@drawable/text_input_background"
+                android:backgroundTint="#676767"
+                android:ems="10"
+                android:fontFamily="@font/cabin"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:minHeight="48dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:textColor="#000000"
+                android:textColorHighlight="#2FFFFFFF"
+                android:textColorHint="#99000000"
+                android:textColorLink="#99000000"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/AddEvent"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.357" />
         </LinearLayout>
-    </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:fontFamily="@font/cabin"
+                android:text="Contraseña:"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/NuevaContrasenaDele"
+                android:layout_width="240dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="5dp"
+                android:autofillHints=""
+                android:background="@drawable/text_input_background"
+                android:backgroundTint="#676767"
+                android:ems="10"
+                android:fontFamily="@font/cabin"
+                android:hint="Contraseña"
+                android:inputType="textEmailAddress"
+                android:minHeight="48dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textColor="#000000"
+                android:textColorHighlight="#2FFFFFFF"
+                android:textColorHint="#99000000"
+                android:textColorLink="#99000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.357" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/borrarUsuario"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="67dp"
+            android:layout_marginBottom="72dp"
+            android:background="@drawable/rounded_button_white"
+            android:fontFamily="@font/montserrat"
+            android:text="Eliminar Usuario"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/AddEvent"
+            app:layout_constraintVertical_bias="0.0" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

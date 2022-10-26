@@ -236,7 +236,7 @@
                 android:progressDrawable="@drawable/inner_progress" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/next"
+                android:id="@+id/nextCrearUs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"

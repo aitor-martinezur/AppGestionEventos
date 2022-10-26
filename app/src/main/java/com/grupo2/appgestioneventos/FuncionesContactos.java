@@ -1,12 +1,12 @@
 package com.grupo2.appgestioneventos;
 
 import android.util.Log;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -16,60 +16,44 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class FuncionesUsuarios {
-    //Archivo con las funciones para crear, borrar y editar usuarios
+public class FuncionesContactos {
+    //Archivo con las funciones para crear, borrar y editar contactos
 
-    //funcion para crear un usuario nuevo en la base de datos
-    /* 
-     * @param   nuevoUsuario    el objeto usuario con toda la informacion para meterlo en la base de datos
+    //funcion para crear un contacto nuevo en la base de datos
+    /*
+     * @param   nuevoContacto   el objeto contacto con toda la informacion para meterlo en la base de datos
      * @param   db              la instancia de la base de datos
      */
-    public static void crearUsuario(Usuario nuevoUsuario, FirebaseFirestore db){
+    public static void crearContacto(Contacto nuevoContacto, FirebaseFirestore db){
         // Add a new document with a generated id.
         Map<String, Object> data = new HashMap<>();
-        data.put("id", nuevoUsuario.getId());
-        data.put("email", nuevoUsuario.getEmail());
-        data.put("nombre", nuevoUsuario.getNombre());
-        data.put("apellido", nuevoUsuario.getApellido());
-        data.put("contrasena", nuevoUsuario.getContrasena());
+        data.put("nombre", nuevoContacto.getNombre());
+        data.put("apellido", nuevoContacto.getApellido());
+        data.put("telefono", nuevoContacto.getTelefono());
+        data.put("email", nuevoContacto.getEmail());
 
         //crea el usuario en la base de datos
-        db.collection("usuarios").document("usuario"+(nuevoUsuario.getId()-2)).set(data);
+        db.collection("contactos").document("contacto"+(nuevoContacto.getId()-1)).set(data);
     }
 
-    //funcion para actualizar un usuario de la base de datos
-    /* 
-     * @param   usuario el objeto usuario con toda la informacion para meterlo en la base de datos
-     * @param   db      la instancia de la base de datos
+    //funcion para actualizar un contacto de la base de datos
+    /*
+     * @param   contacto    el objeto contacto con toda la informacion para meterlo en la base de datos
+     * @param   db          la instancia de la base de datos
      */
-    public static void actualizarUsuario(Usuario usuario, FirebaseFirestore db){
-        //pasa el objeto usuario actualizado a la base de datos
-        //coge la referencia del documento con el id-2 para que no se actualizen el usuario admin y prueba
-        DocumentReference referencia = db.collection("usuarios").document("usuario"+(usuario.getId()-2));
+    public static void actualizarContacto(Contacto contacto, FirebaseFirestore db){
+        //pasa el objeto contacto actualizado a la base de datos
+        //coge la referencia del documento con el id-1 para que no se actualizen el contacto prueba
+        DocumentReference referencia = db.collection("contactos").document("contacto"+(contacto.getId()-1));
 
         //actualiza los campos
         //ID
         referencia
-                .update("id", String.valueOf(usuario.getId()))
+                .update("id", String.valueOf(contacto.getId()))
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d("MYAC-EMAIL", "Actualizado correctamente.");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w("MYAC", "Error updating document", e);
-                    }
-                });
-        //EMAIL
-        referencia
-                .update("email", usuario.getEmail())
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.d("MYAC-EMAIL", "Actualizado correctamente.");
+                        Log.d("MYAC-ID", "Actualizado correctamente.");
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -80,7 +64,7 @@ public class FuncionesUsuarios {
                 });
         //NOMBRE
         referencia
-                .update("nombre", usuario.getNombre())
+                .update("nombre", contacto.getNombre())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -95,7 +79,7 @@ public class FuncionesUsuarios {
                 });
         //APELLIDO
         referencia
-                .update("apellido", usuario.getApellido())
+                .update("apellido", contacto.getApellido())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -108,13 +92,28 @@ public class FuncionesUsuarios {
                         Log.w("MYAC", "Error updating document", e);
                     }
                 });
-        //CONTRASENA
+        //TELEFONO
         referencia
-                .update("contrasena", usuario.getContrasena())
+                .update("telefono", contacto.getTelefono())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d("MYAC-CONTRASENA", "Actualizado correctamente.");
+                        Log.d("MYAC-TELEFONO", "Actualizado correctamente.");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("MYAC", "Error updating document", e);
+                    }
+                });
+        //EMAIL
+        referencia
+                .update("email", contacto.getEmail())
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d("MYAC-EMAIL", "Actualizado correctamente.");
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -125,13 +124,13 @@ public class FuncionesUsuarios {
                 });
     }
 
-    //funcion para borrar un usuario de la base de datos
+    //funcion para borrar un contacto de la base de datos
     /*
-     * @param   usuario el objeto usuario que se quiere borrar
-     * @param   db      la referencia a la base de datos
+     * @param   contacto    el objeto contacto que se quiere borrar
+     * @param   db          la referencia a la base de datos
      */
-    public static void borrarUsuario(Usuario usuario, FirebaseFirestore db){
-        db.collection("usuarios").document("usuario"+(usuario.getId()-2))
+    public static void borrarContacto(Contacto contacto, FirebaseFirestore db){
+        db.collection("contactos").document("usuario"+(contacto.getId()-1))
                 .delete()
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -147,31 +146,3 @@ public class FuncionesUsuarios {
                 });
     }
 }
-
-/*
-    METER DATOS EN LA BASE DE DATOS
-    -------------------------------
-    INSTANCIA BaseDatos ->
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-    RECOGER DATOS ->
-    Map<String, Object> user = new HashMap<>();
-    user.put("name", user.getText().toString());
-    ...
-
-    ENVIAR DATOS ->
-    db.collection("coleccion").document("documento").set(datos)
-    .addOnSuccessListener(new OnSuccessListener<Void>(){
-        @Override
-        public void onSuccess(Void aVoid){
-        Log.d(TAG, "LLAMADA EXITOSA");
-        }
-    })
-    .addOnFailureListener(new OnFailureListener<Void>(){
-        @Override
-        public void onFailure(Void aVoid){
-        Log.d(TAG, "LLAMADA ERRONEA");
-        }
-    })
-
-*/
