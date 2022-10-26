@@ -28,7 +28,7 @@ public class AnadirUsuarioActivity extends AdminUsersActivity {
         Handler handler = new Handler();
 
         //boton para cuando ha metido los valores y crea el usuario
-        FloatingActionButton botonCrear = findViewById(R.id.next);
+        FloatingActionButton botonCrear = findViewById(R.id.nextCrearUs);
         ArrayList<Usuario> finalUsuarios = usuarios;
         botonCrear.setOnClickListener(view -> {
             //recoge los datos de los campos
