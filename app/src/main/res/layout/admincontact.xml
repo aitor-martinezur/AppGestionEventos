@@ -68,6 +68,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:layout_marginBottom="44dp"
         android:background="@drawable/rounded_button_white"
         android:fontFamily="@font/montserrat"
         android:text="Eliminar Contacto"

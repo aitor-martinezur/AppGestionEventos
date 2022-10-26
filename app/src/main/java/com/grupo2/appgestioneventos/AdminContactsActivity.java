@@ -14,8 +14,8 @@ public class AdminContactsActivity extends MenuActivity{
         this.setContentView(R.layout.admincontact);
 
         //funcionalidad boton anadir
-        Button botonAnadir = findViewById(R.id.AddContact);
-        botonAnadir.setOnClickListener(new View.OnClickListener() {
+        Button botonAnadirContacto = findViewById(R.id.AddContact);
+        botonAnadirContacto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(AdminContactsActivity.this, AnadirContactoActivity.class));
@@ -23,8 +23,8 @@ public class AdminContactsActivity extends MenuActivity{
         });
 
         //funcionalidad boton actualizar
-        Button botonActualizar = findViewById(R.id.UpdateContact);
-        botonActualizar.setOnClickListener(new View.OnClickListener() {
+        Button botonActualizarContacto = findViewById(R.id.UpdateContact);
+        botonActualizarContacto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(AdminContactsActivity.this, ActualizarContactoActivity.class));
@@ -32,8 +32,8 @@ public class AdminContactsActivity extends MenuActivity{
         });
 
         //funcionalidad boton borrar
-        Button botonBorrar = findViewById(R.id.DeleteContact);
-        botonBorrar.setOnClickListener(new View.OnClickListener() {
+        Button botonBorrarContacto = findViewById(R.id.DeleteContact);
+        botonBorrarContacto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(AdminContactsActivity.this, BorrarContactoActivity.class));

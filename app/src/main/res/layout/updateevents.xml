@@ -26,6 +26,18 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_marginTop="0dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/cabin"
+                android:text="Editar Evento"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textinputlayout1"
                 android:layout_width="match_parent"
@@ -47,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="text"
-                    android:hint="Nombre del evento" />
+                    android:text="Nombre del evento" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -76,7 +88,7 @@
                         android:layout_width="115dp"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:hint="Fecha evento"
+                        android:text="Fecha evento"
                         android:inputType="text"
                         android:focusableInTouchMode="false"/>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -100,7 +112,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:ems="10"
-                        android:hint="Hora evento"
+                        android:text="Hora evento"
                         android:inputType="text"
                         android:focusableInTouchMode="false"/>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -148,7 +160,7 @@
                         android:layout_width="115dp"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:hint="Fecha fin"
+                        android:text="Fecha fin"
                         android:inputType="text"
                         android:focusableInTouchMode="false"/>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -171,7 +183,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:hint="Hora fin"
+                        android:text="Hora fin"
                         android:inputType="text"
                         android:focusableInTouchMode="false"/>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -224,7 +236,7 @@
                 android:layout_marginBottom="16dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:hint="Descripción"
+                android:text="Descripción"
                 android:theme="@style/Theme.AppCompat.Light"/>
 
             <androidx.appcompat.widget.Toolbar
