@@ -10,6 +10,6 @@ public class AdminContactsActivity extends MenuActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.admincontact);
-
+        
     }
 }
