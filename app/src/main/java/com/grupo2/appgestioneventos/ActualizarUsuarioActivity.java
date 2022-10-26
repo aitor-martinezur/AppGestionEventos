@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -26,7 +27,7 @@ public class ActualizarUsuarioActivity extends AdminUsersActivity{
             usuarios = (ArrayList<Usuario>) getIntent().getExtras().getSerializable("keyUsuarios");
         }
 
-        Button actualizarUsuario = findViewById(R.id.actualizarUsuario);
+        FloatingActionButton actualizarUsuario = findViewById(R.id.nextActu);
         EditText email = findViewById(R.id.NuevoEmailActu);
         EditText nuevoNombre = findViewById(R.id.NuevoNombreActu);
         EditText nuevoApellido = findViewById(R.id.NuevoApellidoActu);

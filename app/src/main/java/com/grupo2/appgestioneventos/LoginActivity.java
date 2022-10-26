@@ -40,7 +40,7 @@ public class LoginActivity extends MainActivity {
         //accion del boton de login
         Button button = findViewById(R.id.button);
         button.setOnClickListener(v -> {
-            //lama a la funcion de login
+            //lama a la funcion de cargar usuarios
             cargarUsuarios(db, v, usuarios);
         });
     }
@@ -59,11 +59,11 @@ public class LoginActivity extends MainActivity {
         for(int i=0; i<usuarios.size(); i++) {
             //si es administrador
             //comprueba si es administrador
-            if ((email.getText().toString().equals(usuarios.get(i).getEmail())/*"admin"*/) && (password.getText().toString().equals(usuarios.get(i).getContrasena()/*"admin"*/))) {
+            if ((email.getText().toString().equals(usuarios.get(0).getEmail())/*"admin"*/) && (password.getText().toString().equals(usuarios.get(0).getContrasena()/*"admin"*/))) {
                 //pasa los valores a la siguiente actividad y la inicia
                 Intent k = new Intent(LoginActivity.this, MenuActivity.class);
                 k.putExtra("keyUsuarios", usuarios);
-                k.putExtra("keyNumUsuario", i);
+                k.putExtra("keyNumUsuario", 0);
                 startActivity(k);
                 //cierra la actividad
                 this.finish();

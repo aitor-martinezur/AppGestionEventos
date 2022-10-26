@@ -182,17 +182,16 @@ public class MenuActivity extends AppCompatActivity {
      */
     public boolean isAdmin(){
         TextView valorAdmin = findViewById(R.id.valorAdmin);
-        CharSequence vAdmin = valorAdmin.getText();
-        String vAdminString = vAdmin.toString();
+        String vAdmin = valorAdmin.getText().toString();
 
-        return Boolean.parseBoolean(vAdminString);
+        return Boolean.parseBoolean(vAdmin);
     }
 
     //funcion que devuelve a la ventana de login para volver a iniciar sesion
     /*
      * @param   item    item del menu que se conecta con la funcion
      */
-    public void cerraSesion(MenuItem item){
+    public void cerrarSesion(MenuItem item){
         startActivity(new Intent(MenuActivity.this, LoginActivity.class));
         this.finish();
     }
