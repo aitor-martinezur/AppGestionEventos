@@ -72,8 +72,8 @@ public class BorrarContactoActivity extends AdminContactsActivity{
      */
     public void funcionBorrarContacto(ArrayList<Contacto> contactos, FirebaseFirestore db){
         //boton para cuando ha metido los valores y crea el usuario
-        FloatingActionButton botonCrear = findViewById(R.id.nextCrearCont);
-        botonCrear.setOnClickListener(view -> {
+        Button botonBorrar = findViewById(R.id.borrarContacto);
+        botonBorrar.setOnClickListener(view -> {
             //recoge los datos de los campos
             EditText email = findViewById(R.id.NuevoEmailBorrarCont);
 

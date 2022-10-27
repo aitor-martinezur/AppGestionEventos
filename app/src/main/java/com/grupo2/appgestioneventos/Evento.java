@@ -11,11 +11,11 @@ public class Evento {
     String descripcion;
     String tipo;
     String creador;
-    Timestamp horaFechaInicio;
-    Timestamp horaFechaFin;
+    String horaFechaInicio;
+    String horaFechaFin;
 
     //constructor
-    public Evento(int paramID, String paramNombre, String paramDescripcion, String paramTipo, String paramCreador, Timestamp paramHoraFechaInicio, Timestamp paramHoraFechaFin){
+    public Evento(int paramID, String paramNombre, String paramDescripcion, String paramTipo, String paramCreador, String paramHoraFechaInicio, String paramHoraFechaFin){
         id = paramID;
         nombre = paramNombre;
         descripcion = paramDescripcion;
@@ -65,19 +65,19 @@ public class Evento {
         this.creador = creador;
     }
 
-    public Timestamp getHoraFechaInicio() {
+    public String getHoraFechaInicio() {
         return horaFechaInicio;
     }
 
-    public void setHoraFechaInicio(Timestamp horaFechaInicio) {
+    public void setHoraFechaInicio(String horaFechaInicio) {
         this.horaFechaInicio = horaFechaInicio;
     }
 
-    public Timestamp getHoraFechaFin() {
+    public String getHoraFechaFin() {
         return horaFechaFin;
     }
 
-    public void setHoraFechaFin(Timestamp horaFechaFin) {
+    public void setHoraFechaFin(String horaFechaFin) {
         this.horaFechaFin = horaFechaFin;
     }
 
