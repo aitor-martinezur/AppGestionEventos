@@ -58,7 +58,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/NuevoEmail"
+                android:id="@+id/NuevoEmailBorrarCont"
                 android:layout_width="240dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="5dp"
@@ -85,7 +85,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/borrarUsuario"
+            android:id="@+id/borrarContacto"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="67dp"

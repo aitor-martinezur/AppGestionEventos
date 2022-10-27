@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.QuickContactBadge;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -27,7 +28,14 @@ public class AnadirContactoActivity extends AdminContactsActivity{
 
         ArrayList<Contacto> contactos = new ArrayList<>();
 
-
+        //funcionalidad del boton
+        FloatingActionButton botonCrear = findViewById(R.id.nextCrearCont);
+        botonCrear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cargarContactos(db, view, contactos);
+            }
+        });
     }
 
     //funcion para cargar los datos de los contactos de la base de datos firebase
@@ -54,15 +62,18 @@ public class AnadirContactoActivity extends AdminContactsActivity{
                     else {
                         Log.d(TAG, "Error getting documents: ", task.getException());
                     }
-                    //llama a la funcion login
-                    login(v, usuarios);
+                    //llama a la para crear el contacto
+                    funcionCrearContacto(contactos, db);
                 });
     }
-
-    public void funcionCrearContacto(){
+    //funcion para recoger los datos y hacer la llamada a la funcion que crea el contacto
+    /*
+     * @param   contactos   el arraylist con los contactos recogidos de la base de datos
+     * @param   db          la instancia de la base de datos
+     */
+    public void funcionCrearContacto(ArrayList<Contacto> contactos, FirebaseFirestore db){
         //boton para cuando ha metido los valores y crea el usuario
         FloatingActionButton botonCrear = findViewById(R.id.nextCrearCont);
-        ArrayList<Contacto> contactos = new ArrayList<>();
         botonCrear.setOnClickListener(view -> {
             //recoge los datos de los campos
             EditText nombre = findViewById(R.id.NuevoNombreContacto);
@@ -78,21 +89,21 @@ public class AnadirContactoActivity extends AdminContactsActivity{
             //mira cual es el ultimo id
             //recoge el id del ultimo user para usar el siguiente
             int ultimoID=0;
-            for (int i = 0; i< finalContactos.size(); i++){
-                if (finalContactos.get(i).getId()>ultimoID){
-                    ultimoID = (finalContactos.get(i).getId())+1;
+            for (int i = 0; i< contactos.size(); i++){
+                if (contactos.get(i).getId()>ultimoID){
+                    ultimoID = (contactos.get(i).getId())+1;
                 }
             }
 
             //comprueba que no sean nulos
-            if ((nuevoEmail.isEmpty())||(nuevoNombre.isEmpty())||(nuevoApellido.isEmpty())||(nuevaContrasena.isEmpty())){
+            if ((nuevoEmail.isEmpty())||(nuevoNombre.isEmpty())||(nuevoApellido.isEmpty())||(nuevoTelefono.isEmpty())){
                 Snackbar.make(view, "No pueden haber campos vacios.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
             else{
-                Usuario usuario = new Usuario(ultimoID+1, nuevoEmail, nuevaContrasena, nuevoNombre, nuevoApellido);
-                FuncionesUsuarios.crearUsuario(usuario, db);
-                Snackbar.make(view, "Usuario creado.", Snackbar.LENGTH_LONG)
+                Contacto contacto = new Contacto(ultimoID+1, nuevoNombre, nuevoApellido, nuevoTelefono, nuevoEmail);
+                FuncionesContactos.crearContacto(contacto, db);
+                Snackbar.make(view, "Contacto creado.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 //espera 5 segundos para devolverle a la pestaña anterior
                 //handler.postDelayed(() -> startActivity(new Intent(AnadirUsuarioActivity.this, AdminUsersActivity.class)), 5000);

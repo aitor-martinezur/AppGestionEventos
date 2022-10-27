@@ -16,41 +16,42 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class FuncionesContactos {
-    //Archivo con las funciones para crear, borrar y editar contactos
+public class FuncionesEventos {
+    //Archivo con las funciones para crear, borrar y editar eventos
 
-    //funcion para crear un contacto nuevo en la base de datos
+    //funcion para crear un evento nuevo en la base de datos
     /*
-     * @param   nuevoContacto   el objeto contacto con toda la informacion para meterlo en la base de datos
-     * @param   db              la instancia de la base de datos
+     * @param   nuevoEvento   el objeto evento con toda la informacion para meterlo en la base de datos
+     * @param   db            la instancia de la base de datos
      */
-    public static void crearContacto(Contacto nuevoContacto, FirebaseFirestore db){
+    public static void crearEvento(Evento nuevoEvento, FirebaseFirestore db){
         // Add a new document with a generated id.
         Map<String, Object> data = new HashMap<>();
-        data.put("id", nuevoContacto.getId());
-        data.put("nombre", nuevoContacto.getNombre());
-        data.put("apellido", nuevoContacto.getApellido());
-        data.put("telefono", nuevoContacto.getTelefono());
-        data.put("email", nuevoContacto.getEmail());
+        data.put("id", nuevoEvento.getId());
+        data.put("nombre", nuevoEvento.getNombre());
+        data.put("descripcion", nuevoEvento.getDescripcion());
+        data.put("tipo", nuevoEvento.getTipo());
+        data.put("creador", nuevoEvento.getCreador());
+        data.put("fechaHoraInicio", nuevoEvento.getHoraFechaInicio());
+        data.put("fechaHoraFin", nuevoEvento.getHoraFechaFin());
 
         //crea el usuario en la base de datos
-        db.collection("contactos").document("contacto"+(nuevoContacto.getId())).set(data);
+        db.collection("eventos").document("evento"+(nuevoEvento.getId())).set(data);
     }
 
-    //funcion para actualizar un contacto de la base de datos
+    //funcion para actualizar un evento de la base de datos
     /*
-     * @param   contacto    el objeto contacto con toda la informacion para meterlo en la base de datos
+     * @param   evento      el objeto contacto con toda la informacion para meterlo en la base de datos
      * @param   db          la instancia de la base de datos
      */
-    public static void actualizarContacto(Contacto contacto, FirebaseFirestore db){
-        //pasa el objeto contacto actualizado a la base de datos
-        //coge la referencia del documento con el id-1 para que no se actualizen el contacto prueba
-        DocumentReference referencia = db.collection("contactos").document("contacto"+(contacto.getId()));
+    public static void actualizarEvento(Evento evento, FirebaseFirestore db){
+        //pasa el objeto evento actualizado a la base de datos
+        DocumentReference referencia = db.collection("eventos").document("evento"+(evento.getId()));
 
         //actualiza los campos
         //ID
         referencia
-                .update("id", String.valueOf(contacto.getId()))
+                .update("id", String.valueOf(evento.getId()))
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -65,7 +66,7 @@ public class FuncionesContactos {
                 });
         //NOMBRE
         referencia
-                .update("nombre", contacto.getNombre())
+                .update("nombre", evento.getNombre())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -78,9 +79,9 @@ public class FuncionesContactos {
                         Log.w("MYAC", "Error updating document", e);
                     }
                 });
-        //APELLIDO
+        //DESCRIPCION
         referencia
-                .update("apellido", contacto.getApellido())
+                .update("descripcion", evento.getDescripcion())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -93,9 +94,9 @@ public class FuncionesContactos {
                         Log.w("MYAC", "Error updating document", e);
                     }
                 });
-        //TELEFONO
+        //TIPO
         referencia
-                .update("telefono", contacto.getTelefono())
+                .update("tipo", evento.getTipo())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -108,9 +109,39 @@ public class FuncionesContactos {
                         Log.w("MYAC", "Error updating document", e);
                     }
                 });
-        //EMAIL
+        //CREADOR
         referencia
-                .update("email", contacto.getEmail())
+                .update("creador", evento.getCreador())
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d("MYAC-EMAIL", "Actualizado correctamente.");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("MYAC", "Error updating document", e);
+                    }
+                });
+        //FECHAHORAINICIO
+        referencia
+                .update("fechaHoraInicio", evento.getHoraFechaInicio())
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d("MYAC-EMAIL", "Actualizado correctamente.");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("MYAC", "Error updating document", e);
+                    }
+                });
+        //FECHAHORAFIN
+        referencia
+                .update("fechaHoraFin", evento.getHoraFechaFin())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -125,13 +156,13 @@ public class FuncionesContactos {
                 });
     }
 
-    //funcion para borrar un contacto de la base de datos
+    //funcion para borrar un evento de la base de datos
     /*
-     * @param   contacto    el objeto contacto que se quiere borrar
+     * @param   evento      el objeto evento que se quiere borrar
      * @param   db          la referencia a la base de datos
      */
-    public static void borrarContacto(Contacto contacto, FirebaseFirestore db){
-        db.collection("contactos").document("contacto"+(contacto.getId()))
+    public static void borrarEvento(Evento evento, FirebaseFirestore db){
+        db.collection("eventos").document("evento"+(evento.getId()))
                 .delete()
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

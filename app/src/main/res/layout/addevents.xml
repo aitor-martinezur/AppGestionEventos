@@ -224,10 +224,24 @@
             android:inputType="textPersonName"
             android:theme="@style/Theme.AppCompat.Light" />
 
+        <EditText
+            android:id="@+id/tipo_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Tipo"
+            android:theme="@style/Theme.AppCompat.Light" />
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="70dp"
+            android:layout_gravity="bottom"
             android:background="@color/colorGradientCenter"
             android:minHeight="?attr/actionBarSize"
             android:padding="0dp"
