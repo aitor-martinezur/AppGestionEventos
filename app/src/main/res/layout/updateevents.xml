@@ -55,7 +55,7 @@
 
 
                 <EditText
-                    android:id="@+id/nombre_evento_edit"
+                    android:id="@+id/nombre_evento_edit_actu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -85,7 +85,7 @@
 
 
                     <EditText
-                        android:id="@+id/fecha_evento_edit"
+                        android:id="@+id/fecha_evento_edit_actu"
                         android:layout_width="115dp"
                         android:layout_height="wrap_content"
                         android:ems="10"
@@ -109,7 +109,7 @@
 
 
                     <EditText
-                        android:id="@+id/hora_evento_edit"
+                        android:id="@+id/hora_evento_edit_actu"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:ems="10"
@@ -157,7 +157,7 @@
 
 
                     <EditText
-                        android:id="@+id/fecha_fin_edit"
+                        android:id="@+id/fecha_fin_edit_actu"
                         android:layout_width="115dp"
                         android:layout_height="wrap_content"
                         android:ems="10"
@@ -180,7 +180,7 @@
 
 
                     <EditText
-                        android:id="@+id/hora_fin_edit"
+                        android:id="@+id/hora_fin_edit_actu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
@@ -228,7 +228,7 @@
 
             <!-- Descripcion -->
             <EditText
-                android:id="@+id/descripcion_edit"
+                android:id="@+id/descripcion_edit_actu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -239,6 +239,19 @@
                 android:inputType="textPersonName"
                 android:text="Descripción"
                 android:theme="@style/Theme.AppCompat.Light"/>
+
+            <EditText
+                android:id="@+id/tipo_edit_actu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="16dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Tipo"
+                android:theme="@style/Theme.AppCompat.Light" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -261,7 +274,7 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <Button
-                        android:id="@+id/btn_guardar"
+                        android:id="@+id/btn_guardar_actu"
                         android:layout_width="131dp"
                         android:layout_height="40dp"
                         android:layout_marginStart="0dp"
@@ -274,7 +287,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <Button
-                        android:id="@+id/btn_cancelar"
+                        android:id="@+id/btn_cancelar_actu"
                         android:layout_width="131dp"
                         android:layout_height="40dp"
                         android:layout_marginEnd="16dp"

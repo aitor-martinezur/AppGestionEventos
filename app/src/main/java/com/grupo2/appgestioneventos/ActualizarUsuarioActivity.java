@@ -38,7 +38,7 @@ public class ActualizarUsuarioActivity extends AdminUsersActivity{
             @Override
             public void onClick(View view) {
                 for(int i = 0; i< finalUsuarios.size(); i++){
-                    if (email.getText().equals(finalUsuarios.get(i).getEmail())){
+                    if (email.getText().toString().equals(finalUsuarios.get(i).getEmail())){
                         Usuario usuarioActualizado = new Usuario(finalUsuarios.get(i).getId(), finalUsuarios.get(i).getEmail(), nuevoNombre.getText().toString(), nuevoApellido.getText().toString(), nuevaContrasena.getText().toString());
                         FuncionesUsuarios.actualizarUsuario(usuarioActualizado, db);
                         Snackbar.make(view, "Usuario actualizado.", Snackbar.LENGTH_LONG)
