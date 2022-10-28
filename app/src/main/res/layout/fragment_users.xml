@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#A6F694B5"
     tools:context=".ui.Usuarios.UsuariosFragment">
 
     <ImageView
@@ -17,9 +17,7 @@
         android:visibility="visible"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
-    <TableRow
-        android:background="#32CC5D"
-        android:padding="5dp">
+    <TableRow android:padding="5dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -56,28 +54,28 @@
             android:layout_width="wrap_content"
             android:layout_height="629dp"
             android:layout_weight="1"
-             />
+            android:textColor="#000000" />
 
         <TextView
-            android:id="@+id/apellido"
+            android:id="@+id/apellidoContact"
             android:layout_width="wrap_content"
             android:layout_height="629dp"
             android:layout_weight="1"
-            />
+            android:textColor="#000000" />
 
         <TextView
-            android:id="@+id/telefono"
+            android:id="@+id/telefonoContact"
             android:layout_width="wrap_content"
             android:layout_height="628dp"
             android:layout_weight="1"
-             />
+            android:textColor="#000000" />
 
         <TextView
-            android:id="@+id/email"
+            android:id="@+id/emailContact"
             android:layout_width="wrap_content"
             android:layout_height="628dp"
             android:layout_weight="1"
-             />
+            android:textColor="#000000" />
     </TableRow>
 </TableLayout>
 
