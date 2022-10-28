@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -48,6 +49,15 @@ public class AnadirEventoActivity extends AdminEventsActivity{
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(AnadirEventoActivity.this, AdminEventsActivity.class));
+            }
+        });
+
+        //funcionalidad del boton para ir hacia atras
+        ImageButton botonAtras = findViewById(R.id.action_settings_back);
+        botonAtras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                retrocederPantalla();
             }
         });
     }
@@ -134,5 +144,10 @@ public class AnadirEventoActivity extends AdminEventsActivity{
                 //handler.postDelayed(() -> startActivity(new Intent(AnadirUsuarioActivity.this, AdminUsersActivity.class)), 5000);
             }
         });
+    }
+    //funcion para ir hacia atras
+    public void retrocederPantalla(){
+        startActivity(new Intent(AnadirEventoActivity.this, AdminEventsActivity.class));
+        this.finish();
     }
 }

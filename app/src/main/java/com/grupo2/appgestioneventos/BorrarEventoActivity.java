@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -34,6 +35,15 @@ public class BorrarEventoActivity extends AdminEventsActivity{
             @Override
             public void onClick(View view) {
                 cargarEventos(db, view, eventos);
+            }
+        });
+
+        //funcionalidad del boton para ir hacia atras
+        ImageButton botonAtras = findViewById(R.id.action_settings_back);
+        botonAtras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                retrocederPantalla();
             }
         });
     }
@@ -94,5 +104,12 @@ public class BorrarEventoActivity extends AdminEventsActivity{
                         .setAction("Action", null).show();
             }
         });
+
+
+    }
+    //funcion para ir hacia atras
+    public void retrocederPantalla(){
+        startActivity(new Intent(BorrarEventoActivity.this, AdminEventsActivity.class));
+        this.finish();
     }
 }

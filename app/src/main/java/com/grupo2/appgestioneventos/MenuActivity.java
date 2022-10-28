@@ -67,8 +67,6 @@ public class MenuActivity extends AppCompatActivity {
             if(isAdmin()){
                 //pasa los valores a la siguiente actividad y la inicia
                 Intent k = new Intent(MenuActivity.this, AdminUsersActivity.class);
-                ArrayList<Usuario> usuarios = (ArrayList<Usuario>) getIntent().getExtras().getSerializable("keyUsuarios");
-                k.putExtra("keyUsuarios",usuarios);
                 startActivity(k);
             }
             else{
@@ -104,6 +102,7 @@ public class MenuActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu, menu);
 
+        boolean primeraVez = false;
         //valores de la otra actividad
         ArrayList<Usuario> usuarios = new ArrayList<>();
         int numUsuario = 0;
@@ -113,6 +112,7 @@ public class MenuActivity extends AppCompatActivity {
             usuarios = (ArrayList<Usuario>) getIntent().getExtras().getSerializable("keyUsuarios");
             numUsuario = extras.getInt("keyNumUsuario");
             //The key argument here must match that used in the other activity
+            primeraVez = true;
         }
         if (numUsuario==0){
             admin = "true";
@@ -120,15 +120,20 @@ public class MenuActivity extends AppCompatActivity {
         else{
             admin = "false";
         }
-        //pone los valores en el menu desplegable
-        TextView TVNombreApellido = findViewById(R.id.nombreUsuarioMenu);
-        TextView TVEmail = findViewById(R.id.emailUsuarioMenu);
+        if(primeraVez) {
+            //pone los valores en el menu desplegable
+            TextView TVNombreApellido = findViewById(R.id.nombreUsuarioMenu);
+            TextView TVEmail = findViewById(R.id.emailUsuarioMenu);
+
+            //nombre y apellido para mostrar
+            String nombreApellido = usuarios.get(numUsuario).getNombre() + " " + usuarios.get(numUsuario).getApellido();
+            TVNombreApellido.setText(nombreApellido);
+            TVEmail.setText(usuarios.get(numUsuario).getEmail());
+
+            primeraVez = false;
+        }
         TextView valorAdmin = findViewById(R.id.valorAdmin);
         valorAdmin.setText(admin);
-        //nombre y apellido para mostrar
-        String nombreApellido = usuarios.get(numUsuario).getNombre()+" "+usuarios.get(numUsuario).getApellido();
-        TVNombreApellido.setText(nombreApellido);
-        TVEmail.setText(usuarios.get(numUsuario).getEmail());
 
         return true;
     }

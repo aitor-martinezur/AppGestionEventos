@@ -35,7 +35,14 @@ public class ActualizarContactoActivity extends AdminContactsActivity{
             }
         });
 
-        ImageButton atras = findViewById(R.id.action_settings_back);
+        //funcionalidad del boton para ir hacia atras
+        ImageButton botonAtras = findViewById(R.id.action_settings_back);
+        botonAtras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                retrocederPantalla();
+            }
+        });
     }
 
     //funcion para cargar los datos de los contactos de la base de datos firebase
@@ -103,5 +110,10 @@ public class ActualizarContactoActivity extends AdminContactsActivity{
                         .setAction("Action", null).show();
             }
         });
+    }
+    //funcion para ir hacia atras
+    public void retrocederPantalla(){
+        startActivity(new Intent(ActualizarContactoActivity.this, AdminContactsActivity.class));
+        this.finish();
     }
 }

@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.QuickContactBadge;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -35,6 +36,15 @@ public class AnadirContactoActivity extends AdminContactsActivity{
             @Override
             public void onClick(View view) {
                 cargarContactos(db, view /*contactos*/);
+            }
+        });
+
+        //funcionalidad del boton para ir hacia atras
+        ImageButton botonAtras = findViewById(R.id.action_settings_back);
+        botonAtras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                retrocederPantalla();
             }
         });
     }
@@ -111,6 +121,11 @@ public class AnadirContactoActivity extends AdminContactsActivity{
                 //handler.postDelayed(() -> startActivity(new Intent(AnadirUsuarioActivity.this, AdminUsersActivity.class)), 5000);
             }
         });
+    }
+    //funcion para ir hacia atras
+    public void retrocederPantalla(){
+        startActivity(new Intent(AnadirContactoActivity.this, AdminContactsActivity.class));
+        this.finish();
     }
 
 }

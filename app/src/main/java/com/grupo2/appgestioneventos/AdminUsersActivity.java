@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 
 import java.util.ArrayList;
@@ -15,22 +16,14 @@ public class AdminUsersActivity extends MenuActivity {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.adminusers);
 
-         //arraylist de los usuarios
-         ArrayList<Usuario> usuarios = new ArrayList<>();
-         Bundle extras = getIntent().getExtras();
-         if (extras!=null) {
-             usuarios = (ArrayList<Usuario>) getIntent().getExtras().getSerializable("keyUsuarios");
-         }
 
          //funcionalidad del boton para crear usuario
          Button botonAnadirUsuario = findViewById(R.id.anadirUsuario);
-         ArrayList<Usuario> finalUsuarios1 = usuarios;
          botonAnadirUsuario.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
                  //pasa los valores a la siguiente actividad y la inicia
                  Intent k = new Intent(AdminUsersActivity.this, AnadirUsuarioActivity.class);
-                 k.putExtra("keyUsuarios", finalUsuarios1);
                  startActivity(k);
              }
          });
@@ -41,21 +34,33 @@ public class AdminUsersActivity extends MenuActivity {
              public void onClick(View view) {
                  //pasa los valores a la siguiente actividad y la inicia
                  Intent k = new Intent(AdminUsersActivity.this, ActualizarUsuarioActivity.class);
-                 k.putExtra("keyUsuarios", finalUsuarios1);
                  startActivity(k);
              }
          });
          //funcionalidad del boton borrar usuario
          Button botonBorrarUsuario = findViewById(R.id.borrarUsuario);
-         ArrayList<Usuario> finalUsuarios = usuarios;
          botonBorrarUsuario.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
                  //pasa los valores a la siguiente actividad y la inicia
                  Intent k = new Intent(AdminUsersActivity.this, BorrarUsuarioActivity.class);
-                 k.putExtra("keyUsuarios", finalUsuarios);
                  startActivity(k);
              }
          });
+
+         //funcionalidad del boton para ir hacia atras
+         ImageButton botonAtras = findViewById(R.id.action_settings_back);
+         botonAtras.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 retrocederPantalla();
+             }
+         });
+    }
+
+    //funcion para ir hacia atras
+    public void retrocederPantalla(){
+         startActivity(new Intent(AdminUsersActivity.this, MenuActivity.class));
+         this.finish();
     }
 }
