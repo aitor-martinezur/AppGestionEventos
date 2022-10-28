@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,79 +7,79 @@
     android:background="@color/white"
     tools:context=".ui.Usuarios.UsuariosFragment">
 
-    <TextView
-        android:id="@+id/text_gallery"
+    <ImageView
+        android:id="@+id/image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="150dp"
+        android:scaleType="centerCrop"
+        android:src="@color/grey"
+        android:transitionName="profile"
+        android:visibility="visible"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
-    <TextView
-        android:id="@+id/text_gallery1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="casual"
-        android:text="Mis contactos"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:transitionName="title"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.128" />
+    <TableRow
+        android:background="#32CC5D"
+        android:padding="5dp">
 
-    <Button
-        android:id="@+id/botonedit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="598dp"
-        android:layout_marginEnd="@dimen/activity_vertical_margin"
-        android:text="Button"
-        app:layout_constraintEnd_toStartOf="@+id/botondelet"
-        app:layout_constraintStart_toEndOf="@+id/botonañadir"
-        app:layout_constraintTop_toBottomOf="@+id/text_gallery"
-        tools:text="Editar" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Nombre" />
 
-    <Button
-        android:id="@+id/botondelet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="598dp"
-        android:text="Button"
-        app:layout_constraintStart_toEndOf="@+id/botonedit"
-        app:layout_constraintTop_toBottomOf="@+id/text_gallery"
-        tools:text="Borrar" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Apellido" />
 
-    <TableLayout
-        android:id="@+id/tableLayout"
-        android:layout_width="397dp"
-        android:layout_height="473dp"
-        android:addStatesFromChildren="false"
-        android:background="#F1DEEE"
-        android:clickable="false"
-        android:clipChildren="false"
-        android:clipToPadding="false"
-        android:isScrollContainer="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Telefono" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Email" />
+    </TableRow>
+
+    <TableRow
+        android:layout_height="560dp"
+        android:background="#DAE8FC"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/nameContact"
+            android:layout_width="wrap_content"
+            android:layout_height="629dp"
+            android:layout_weight="1"
+             />
+
+        <TextView
+            android:id="@+id/apellido"
+            android:layout_width="wrap_content"
+            android:layout_height="629dp"
+            android:layout_weight="1"
+            />
+
+        <TextView
+            android:id="@+id/telefono"
+            android:layout_width="wrap_content"
+            android:layout_height="628dp"
+            android:layout_weight="1"
+             />
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="628dp"
+            android:layout_weight="1"
+             />
+    </TableRow>
+</TableLayout>
 
 
 
