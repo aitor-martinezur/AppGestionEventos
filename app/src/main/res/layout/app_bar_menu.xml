@@ -93,9 +93,10 @@
         android:background="@drawable/menu_background"
         android:translationY="5dp"
         app:contentInsetStartWithNavigation="0dp"
-        app:navigationIcon="@drawable/back_arrow"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:titleMarginStart="0dp"
-        app:titleTextColor="@color/black"></androidx.appcompat.widget.Toolbar>
+        app:titleTextColor="@color/black">
+
+    </androidx.appcompat.widget.Toolbar>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

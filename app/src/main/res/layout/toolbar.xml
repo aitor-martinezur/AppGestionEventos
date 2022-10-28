@@ -14,9 +14,14 @@
     android:background="@drawable/menu_background"
     android:translationY="5dp"
     app:contentInsetStartWithNavigation="0dp"
-    app:navigationIcon="@drawable/back_arrow"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
     app:titleMarginStart="0dp"
     app:titleTextColor="@color/black">
-
+<Button
+    android:id="@+id/action_settings_cerrarSesion"
+    android:onClick="cerrarSesion"
+    android:orderInCategory="100"
+    android:title="Cerrar Sesión"
+    app:showAsAction="never" android:layout_height="20dp"
+     android:layout_width="20dp"></Button>
 </androidx.appcompat.widget.Toolbar>

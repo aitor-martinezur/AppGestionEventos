@@ -10,7 +10,7 @@ public class EventosViewModel extends ViewModel {
 
     public EventosViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is eventos fragment");
+        mText.setValue("");
     }
 
     public LiveData<String> getText() {
