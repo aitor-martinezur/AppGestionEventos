@@ -12,18 +12,23 @@
     android:background="@color/white"
     android:theme="@style/Theme.AppCompat.Light"
     tools:context=".ui.Eventos.EventosFragment">
-    
-        <ImageView
-            android:id="@+id/image"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:scaleType="centerCrop"
-            android:src="@color/grey"
-            android:transitionName="profile"
-            android:visibility="visible"
-            tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
-        <TableRow
+    //Separador
+    <TextView></TextView>
+    <TextView></TextView>
+    <TextView></TextView>
+
+    <TextView
+        android:layout_width="152dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/cabin"
+        android:text="Eventos"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+    <TableRow
             android:background="#339FF4"
             android:padding="5dp">
 
@@ -49,39 +54,37 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Fecha Hora" />
+                android:text="Tipo" />
         </TableRow>
 
-        <TableRow
-            android:layout_height="560dp"
-            android:background="#DAE8FC"
-            android:padding="5dp">
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#DAE8FC"
+        android:padding="5dp">
 
-            <TextView
-                android:id="@+id/nameEvent"
-                android:layout_width="91dp"
-                android:layout_height="629dp"
-                android:layout_weight="1" />
+        <TextView
+            android:id="@+id/nameEvent"
+            android:layout_width="91dp"
+            android:layout_height="629dp"
+            android:layout_weight="1" />
 
-            <TextView
-                android:id="@+id/descripcionEvent"
-                android:layout_width="wrap_content"
-                android:layout_height="629dp"
-                android:layout_weight="1"
-                />
+        <TextView
+            android:id="@+id/descripcionEvent"
+            android:layout_width="wrap_content"
+            android:layout_height="629dp"
+            android:layout_weight="1" />
 
-            <TextView
-                android:id="@+id/fechaEvento"
-                android:layout_width="wrap_content"
-                android:layout_height="628dp"
-                android:layout_weight="1"
-                />
+        <TextView
+            android:id="@+id/fechaEvento"
+            android:layout_width="wrap_content"
+            android:layout_height="628dp"
+            android:layout_weight="1" />
 
-            <TextView
-                android:id="@+id/horaEvento"
-                android:layout_width="wrap_content"
-                android:layout_height="628dp"
-                android:layout_weight="1"
-                />
-        </TableRow>
-    </TableLayout>
+        <TextView
+            android:id="@+id/horaEvento"
+            android:layout_width="wrap_content"
+            android:layout_height="628dp"
+            android:layout_weight="1" />
+    </TableRow>
+</TableLayout>
