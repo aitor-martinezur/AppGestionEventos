@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#A6F694B5"
+    android:layout_height="wrap_content"
+    android:layout_margin="15dp"
+    card_view:cardCornerRadius="8dp"
+    card_view:cardElevation="8dp"
+    card_view:cardUseCompatPadding="true"
+    android:background="@color/white"
+    android:theme="@style/Theme.AppCompat.Light"
     tools:context=".ui.Usuarios.UsuariosFragment">
 
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:scaleType="centerCrop"
-        android:src="@color/grey"
-        android:transitionName="profile"
-        android:visibility="visible"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
-    <TableRow android:padding="5dp">
+   //Separador
+    <TextView></TextView>
+    <TextView></TextView>
+    <TextView></TextView>
+    <TableRow
+        android:background="#32CC5D"
+        android:padding="5dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -54,28 +56,28 @@
             android:layout_width="wrap_content"
             android:layout_height="629dp"
             android:layout_weight="1"
-            android:textColor="#000000" />
+             />
 
         <TextView
-            android:id="@+id/apellidoContact"
+            android:id="@+id/apellido"
             android:layout_width="wrap_content"
             android:layout_height="629dp"
             android:layout_weight="1"
-            android:textColor="#000000" />
+            />
 
         <TextView
-            android:id="@+id/telefonoContact"
+            android:id="@+id/telefono"
             android:layout_width="wrap_content"
             android:layout_height="628dp"
             android:layout_weight="1"
-            android:textColor="#000000" />
+             />
 
         <TextView
-            android:id="@+id/emailContact"
+            android:id="@+id/email"
             android:layout_width="wrap_content"
             android:layout_height="628dp"
             android:layout_weight="1"
-            android:textColor="#000000" />
+             />
     </TableRow>
 </TableLayout>
 
