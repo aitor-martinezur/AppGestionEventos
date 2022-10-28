@@ -17,11 +17,14 @@
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
     app:titleMarginStart="0dp"
     app:titleTextColor="@color/black">
-<Button
+
+<ImageButton
+    android:layout_width="20dp"
+    android:layout_height="20dp"
     android:id="@+id/action_settings_back"
-    android:onClick="cerrarSesion"
-    android:orderInCategory="100"
-    android:title="Cerrar Sesión"
-    app:showAsAction="never" android:layout_height="20dp"
-     android:layout_width="20dp"></Button>
+    android:src="@drawable/back_arrow"
+    android:onClick="retrocederPantalla"
+    app:showAsAction="never" />
+
+
 </androidx.appcompat.widget.Toolbar>
