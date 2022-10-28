@@ -91,7 +91,7 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:hint="Fecha evento"
-                        android:inputType="text"
+                        android:inputType="date"
                         android:focusableInTouchMode="false"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
@@ -115,7 +115,7 @@
                         android:layout_height="match_parent"
                         android:ems="10"
                         android:hint="Hora evento"
-                        android:inputType="text"
+                        android:inputType="time"
                         android:focusableInTouchMode="false"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -163,7 +163,7 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:hint="Fecha fin"
-                        android:inputType="text"
+                        android:inputType="date"
                         android:focusableInTouchMode="false"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -186,7 +186,7 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:hint="Hora fin"
-                        android:inputType="text"
+                        android:inputType="time"
                         android:focusableInTouchMode="false"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
