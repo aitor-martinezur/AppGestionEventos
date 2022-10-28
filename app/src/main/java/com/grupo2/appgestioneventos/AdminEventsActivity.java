@@ -39,10 +39,5 @@ public class AdminEventsActivity extends MenuActivity {
             }
         });
     }
-    //funcion para ir hacia atras
-    public void retrocederPantalla(){
-        startActivity(new Intent(AdminEventsActivity.this, MenuActivity.class));
-        this.finish();
-    }
 }
 

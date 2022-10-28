@@ -135,9 +135,4 @@ public class AnadirEventoActivity extends AdminEventsActivity{
             }
         });
     }
-    //funcion para ir hacia atras
-    public void retrocederPantalla(){
-        startActivity(new Intent(AnadirEventoActivity.this, AdminEventsActivity.class));
-        this.finish();
-    }
 }

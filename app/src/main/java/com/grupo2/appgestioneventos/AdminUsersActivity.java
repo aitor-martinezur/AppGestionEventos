@@ -58,10 +58,4 @@ public class AdminUsersActivity extends MenuActivity {
              }
          });
     }
-
-    //funcion para ir hacia atras
-    public void retrocederPantalla(){
-         startActivity(new Intent(AdminUsersActivity.this, MenuActivity.class));
-         this.finish();
-    }
 }

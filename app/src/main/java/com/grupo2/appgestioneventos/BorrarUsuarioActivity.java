@@ -51,9 +51,4 @@ public class BorrarUsuarioActivity extends AdminUsersActivity {
             }
         });
     }
-    //funcion para ir hacia atras
-    public void retrocederPantalla(){
-        startActivity(new Intent(BorrarUsuarioActivity.this, AdminUsersActivity.class));
-        this.finish();
-    }
 }

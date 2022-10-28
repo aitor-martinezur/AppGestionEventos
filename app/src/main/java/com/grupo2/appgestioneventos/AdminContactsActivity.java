@@ -41,9 +41,4 @@ public class AdminContactsActivity extends MenuActivity{
         });
 
     }
-    //funcion para ir hacia atras
-    public void retrocederPantalla(){
-        startActivity(new Intent(AdminContactsActivity.this, MenuActivity.class));
-        this.finish();
-    }
 }

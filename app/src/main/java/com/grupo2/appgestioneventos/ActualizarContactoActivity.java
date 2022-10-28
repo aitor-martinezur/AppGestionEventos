@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -33,6 +34,8 @@ public class ActualizarContactoActivity extends AdminContactsActivity{
                 cargarContactos(db, view, contactos);
             }
         });
+
+        ImageButton atras = findViewById(R.id.action_settings_back);
     }
 
     //funcion para cargar los datos de los contactos de la base de datos firebase
@@ -100,10 +103,5 @@ public class ActualizarContactoActivity extends AdminContactsActivity{
                         .setAction("Action", null).show();
             }
         });
-    }
-    //funcion para ir hacia atras
-    public void retrocederPantalla(){
-        startActivity(new Intent(ActualizarContactoActivity.this, AdminContactsActivity.class));
-        this.finish();
     }
 }

@@ -95,9 +95,4 @@ public class BorrarEventoActivity extends AdminEventsActivity{
             }
         });
     }
-    //funcion para ir hacia atras
-    public void retrocederPantalla(){
-        startActivity(new Intent(BorrarEventoActivity.this, AdminEventsActivity.class));
-        this.finish();
-    }
 }

@@ -95,9 +95,4 @@ public class BorrarContactoActivity extends AdminContactsActivity{
             }
         });
     }
-    //funcion para ir hacia atras
-    public void retrocederPantalla(){
-        startActivity(new Intent(BorrarContactoActivity.this, AdminContactsActivity.class));
-        this.finish();
-    }
 }

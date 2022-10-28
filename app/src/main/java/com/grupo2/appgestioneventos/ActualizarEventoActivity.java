@@ -121,9 +121,4 @@ public class ActualizarEventoActivity extends AdminEventsActivity{
             }
         });
     }
-    //funcion para ir hacia atras
-    public void retrocederPantalla(){
-        startActivity(new Intent(ActualizarEventoActivity.this, AdminEventsActivity.class));
-        this.finish();
-    }
 }

@@ -53,9 +53,4 @@ public class ActualizarUsuarioActivity extends AdminUsersActivity{
             }
         });
     }
-    //funcion para ir hacia atras
-    public void retrocederPantalla(){
-        startActivity(new Intent(ActualizarUsuarioActivity.this, AdminUsersActivity.class));
-        this.finish();
-    }
 }

@@ -112,10 +112,5 @@ public class AnadirContactoActivity extends AdminContactsActivity{
             }
         });
     }
-    //funcion para ir hacia atras
-    public void retrocederPantalla(){
-        startActivity(new Intent(AnadirContactoActivity.this, AdminContactsActivity.class));
-        this.finish();
-    }
 
 }

@@ -67,9 +67,4 @@ public class AnadirUsuarioActivity extends AdminUsersActivity {
             }
         });
     }
-    //funcion para ir hacia atras
-    public void retrocederPantalla(){
-        startActivity(new Intent(AnadirUsuarioActivity.this, AdminUsersActivity.class));
-        this.finish();
-    }
 }
