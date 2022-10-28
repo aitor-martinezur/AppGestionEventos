@@ -17,8 +17,20 @@
     <TextView></TextView>
     <TextView></TextView>
     <TextView></TextView>
+
+    <TextView
+        android:layout_width="152dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/cabin"
+        android:text="Contactos"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
     <TableRow
-        android:background="#32CC5D"
+        android:background="#FAB2CA"
         android:padding="5dp">
 
         <TextView
@@ -56,28 +68,28 @@
             android:layout_width="wrap_content"
             android:layout_height="629dp"
             android:layout_weight="1"
-             />
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/apellidoContact"
             android:layout_width="wrap_content"
             android:layout_height="629dp"
             android:layout_weight="1"
-            />
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/telefonoContact"
             android:layout_width="wrap_content"
             android:layout_height="628dp"
             android:layout_weight="1"
-             />
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/emailContact"
             android:layout_width="wrap_content"
             android:layout_height="628dp"
             android:layout_weight="1"
-             />
+            android:textColor="#000000" />
     </TableRow>
 </TableLayout>
 

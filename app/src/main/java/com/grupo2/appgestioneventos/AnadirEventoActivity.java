@@ -126,7 +126,7 @@ public class AnadirEventoActivity extends AdminEventsActivity{
             int ultimoID=0;
             for (int i = 0; i< eventos.size(); i++){
                 if (eventos.get(i).getId()>ultimoID){
-                    ultimoID = (eventos.get(i).getId())+1;
+                    ultimoID = (eventos.get(i).getId());
                 }
             }
 
@@ -136,9 +136,9 @@ public class AnadirEventoActivity extends AdminEventsActivity{
                         .setAction("Action", null).show();
             }
             else{
-                Evento evento = new Evento(ultimoID, nuevoNombre, nuevaDescripcion, nuevoTipo, nuevoCreador, nuevaFechaHoraIn, nuevaFechaHoraFin);
+                Evento evento = new Evento(ultimoID+1, nuevoNombre, nuevaDescripcion, nuevoTipo, nuevoCreador, nuevaFechaHoraIn, nuevaFechaHoraFin);
                 FuncionesEventos.crearEvento(evento, db);
-                Snackbar.make(view, "Contacto creado.", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Evento creado.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 //espera 5 segundos para devolverle a la pestaña anterior
                 //handler.postDelayed(() -> startActivity(new Intent(AnadirUsuarioActivity.this, AdminUsersActivity.class)), 5000);

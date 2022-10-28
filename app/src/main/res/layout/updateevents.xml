@@ -90,9 +90,9 @@
                         android:layout_width="115dp"
                         android:layout_height="wrap_content"
                         android:ems="10"
+                        android:focusableInTouchMode="false"
                         android:hint="Fecha evento"
-                        android:inputType="date"
-                        android:focusableInTouchMode="false"/>
+                        android:inputType="date" />
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textinputlayout3"

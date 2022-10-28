@@ -6,16 +6,19 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="15dp"
+    android:background="@color/white"
+    android:theme="@style/Theme.AppCompat.Light"
     card_view:cardCornerRadius="8dp"
     card_view:cardElevation="8dp"
     card_view:cardUseCompatPadding="true"
-    android:background="@color/white"
-    android:theme="@style/Theme.AppCompat.Light"
     tools:context=".ui.Eventos.EventosFragment">
 
     //Separador
+
     <TextView></TextView>
+
     <TextView></TextView>
+
     <TextView></TextView>
 
     <TextView
@@ -28,38 +31,39 @@
         android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold" />
+
     <TableRow
-            android:background="#339FF4"
-            android:padding="5dp">
+        android:background="#FBAFC9"
+        android:padding="5dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Nombre Evento" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Nombre Evento" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Descripcion" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Descripcion" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Fecha Evento" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Fecha Evento" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Tipo" />
-        </TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Tipo" />
+    </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="581dp"
         android:background="#DAE8FC"
         android:padding="5dp">
 
@@ -67,24 +71,28 @@
             android:id="@+id/nameEvent"
             android:layout_width="91dp"
             android:layout_height="629dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/descripcionEvent"
             android:layout_width="wrap_content"
             android:layout_height="629dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textColor="#000000" />
 
         <TextView
-            android:id="@+id/fechaEvento"
+            android:id="@+id/fechaHoraEvento"
             android:layout_width="wrap_content"
             android:layout_height="628dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textColor="#000000" />
 
         <TextView
-            android:id="@+id/horaEvento"
+            android:id="@+id/tipoEvento"
             android:layout_width="wrap_content"
             android:layout_height="628dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textColor="#000000" />
     </TableRow>
 </TableLayout>
