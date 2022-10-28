@@ -83,6 +83,7 @@ public class ActualizarContactoActivity extends AdminContactsActivity{
             String nuevoApellido = apellido.getText().toString();
             String nuevoTelefono = telefono.getText().toString();
 
+            boolean encontrado = false;
             for (int i=0; i<contactos.size(); i++){
                 if(nuevoEmail.equals(contactos.get(i).getEmail())){
                     //crea el nuevo contacto y lo actualiza
@@ -90,11 +91,12 @@ public class ActualizarContactoActivity extends AdminContactsActivity{
                     FuncionesContactos.actualizarContacto(contacto, db);
                     Snackbar.make(view, "Contacto actualizado.", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
+                    encontrado = true;
                 }
-                else{
-                    Snackbar.make(view, "No hay ningun contacto con ese email.", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
-                }
+            }
+            if (encontrado == false){
+                Snackbar.make(view, "No hay ningun contacto con ese email.", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         });
     }

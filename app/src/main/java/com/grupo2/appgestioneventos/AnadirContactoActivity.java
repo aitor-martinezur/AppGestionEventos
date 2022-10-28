@@ -26,14 +26,14 @@ public class AnadirContactoActivity extends AdminContactsActivity{
         //handler
         Handler handler = new Handler();
 
-        ArrayList<Contacto> contactos = new ArrayList<>();
+
 
         //funcionalidad del boton
         FloatingActionButton botonCrear = findViewById(R.id.nextCrearCont);
         botonCrear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cargarContactos(db, view, contactos);
+                cargarContactos(db, view /*contactos*/);
             }
         });
     }
@@ -44,8 +44,9 @@ public class AnadirContactoActivity extends AdminContactsActivity{
      * @param   v           la vista de la actividad
      * @param   contactos   ArrayList donde se van a meter todos los contactos que se recuperen de la base de datos
      */
-    public void cargarContactos(FirebaseFirestore db, View v, ArrayList<Contacto> contactos){
+    public void cargarContactos(FirebaseFirestore db, View v /*ArrayList<Contacto> contactos*/){
         final String TAG = "MyActivity";
+        ArrayList<Contacto> contactos = new ArrayList<>();
         //llamada a la base de datos para recoger la informacion
         db.collection("contactos")
                 .get()
@@ -101,7 +102,7 @@ public class AnadirContactoActivity extends AdminContactsActivity{
                         .setAction("Action", null).show();
             }
             else{
-                Contacto contacto = new Contacto(ultimoID+1, nuevoNombre, nuevoApellido, nuevoTelefono, nuevoEmail);
+                Contacto contacto = new Contacto((ultimoID), nuevoNombre, nuevoApellido, nuevoTelefono, nuevoEmail);
                 FuncionesContactos.crearContacto(contacto, db);
                 Snackbar.make(view, "Contacto creado.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();

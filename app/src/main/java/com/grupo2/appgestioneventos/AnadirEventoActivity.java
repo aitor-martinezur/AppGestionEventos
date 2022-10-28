@@ -126,7 +126,7 @@ public class AnadirEventoActivity extends AdminEventsActivity{
                         .setAction("Action", null).show();
             }
             else{
-                Evento evento = new Evento(ultimoID+1, nuevoNombre, nuevaDescripcion, nuevoTipo, nuevoCreador, nuevaFechaHoraIn, nuevaFechaHoraFin);
+                Evento evento = new Evento(ultimoID, nuevoNombre, nuevaDescripcion, nuevoTipo, nuevoCreador, nuevaFechaHoraIn, nuevaFechaHoraFin);
                 FuncionesEventos.crearEvento(evento, db);
                 Snackbar.make(view, "Contacto creado.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();

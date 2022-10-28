@@ -79,16 +79,18 @@ public class BorrarEventoActivity extends AdminEventsActivity{
 
             String nuevoNombre = nombre.getText().toString();
 
+            boolean encontrado = false;
             for(int i=0; i<eventos.size(); i++){
                 if (nuevoNombre.equals(eventos.get(i).getNombre())){
                     FuncionesEventos.borrarEvento(eventos.get(i), db);
                     Snackbar.make(view, "Evento borrado.", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
+                    encontrado = true;
                 }
-                else{
-                    Snackbar.make(view, "No hay ningun evento con ese nombre.", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
-                }
+            }
+            if (encontrado == false){
+                Snackbar.make(view, "No hay ningun evento con ese nombre.", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         });
     }

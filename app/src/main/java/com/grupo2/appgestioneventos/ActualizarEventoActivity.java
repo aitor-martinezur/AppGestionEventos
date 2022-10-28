@@ -106,6 +106,7 @@ public class ActualizarEventoActivity extends AdminEventsActivity{
             String nuevaFechaHoraIn = nuevaFechaIn+" "+nuevaHoraIn;
             String nuevaFechaHoraFin = nuevaFechaFin+" "+nuevaHoraFin;
 
+            boolean encontrado = false;
             for (int i=0; i<eventos.size(); i++){
                 if(nuevoNombre.equals(eventos.get(i).getNombre())){
                     //crea el nuevo contacto y lo actualiza
@@ -113,11 +114,12 @@ public class ActualizarEventoActivity extends AdminEventsActivity{
                     FuncionesEventos.actualizarEvento(evento, db);
                     Snackbar.make(view, "Evento actualizado.", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
+                    encontrado = true;
                 }
-                else{
-                    Snackbar.make(view, "No hay ningun evento con ese nombre.", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
-                }
+            }
+            if (encontrado == false){
+                Snackbar.make(view, "No hay ningun evento con ese nombre.", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         });
     }

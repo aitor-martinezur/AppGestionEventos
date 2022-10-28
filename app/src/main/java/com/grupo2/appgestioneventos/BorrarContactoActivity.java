@@ -79,16 +79,18 @@ public class BorrarContactoActivity extends AdminContactsActivity{
 
             String nuevoEmail = email.getText().toString();
 
+            boolean encontrado = false;
             for(int i=0; i<contactos.size(); i++){
                 if (nuevoEmail.equals(contactos.get(i).getEmail())){
                     FuncionesContactos.borrarContacto(contactos.get(i), db);
                     Snackbar.make(view, "Contacto borrado.", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
+                    encontrado = true;
                 }
-                else{
-                    Snackbar.make(view, "No hay ningun contacto con ese email.", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
-                }
+            }
+            if (encontrado == false){
+                Snackbar.make(view, "No hay ningun contacto con ese email.", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         });
     }
