@@ -1,5 +1,6 @@
 package com.grupo2.appgestioneventos;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -49,5 +50,10 @@ public class BorrarUsuarioActivity extends AdminUsersActivity {
                 }
             }
         });
+    }
+    //funcion para ir hacia atras
+    public void retrocederPantalla(){
+        startActivity(new Intent(BorrarUsuarioActivity.this, AdminUsersActivity.class));
+        this.finish();
     }
 }

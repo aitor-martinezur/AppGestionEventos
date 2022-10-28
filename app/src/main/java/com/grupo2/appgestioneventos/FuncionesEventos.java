@@ -27,7 +27,7 @@ public class FuncionesEventos {
     public static void crearEvento(Evento nuevoEvento, FirebaseFirestore db){
         // Add a new document with a generated id.
         Map<String, Object> data = new HashMap<>();
-        data.put("id", nuevoEvento.getId());
+        data.put("id", String.valueOf(nuevoEvento.getId()));
         data.put("nombre", nuevoEvento.getNombre());
         data.put("descripcion", nuevoEvento.getDescripcion());
         data.put("tipo", nuevoEvento.getTipo());

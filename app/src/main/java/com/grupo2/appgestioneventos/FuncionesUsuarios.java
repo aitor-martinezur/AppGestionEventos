@@ -26,7 +26,7 @@ public class FuncionesUsuarios {
     public static void crearUsuario(Usuario nuevoUsuario, FirebaseFirestore db){
         // Add a new document with a generated id.
         Map<String, Object> data = new HashMap<>();
-        data.put("id", nuevoUsuario.getId());
+        data.put("id", String.valueOf(nuevoUsuario.getId()));
         data.put("email", nuevoUsuario.getEmail());
         data.put("nombre", nuevoUsuario.getNombre());
         data.put("apellido", nuevoUsuario.getApellido());

@@ -1,5 +1,6 @@
 package com.grupo2.appgestioneventos;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -51,5 +52,10 @@ public class ActualizarUsuarioActivity extends AdminUsersActivity{
                 }
             }
         });
+    }
+    //funcion para ir hacia atras
+    public void retrocederPantalla(){
+        startActivity(new Intent(ActualizarUsuarioActivity.this, AdminUsersActivity.class));
+        this.finish();
     }
 }

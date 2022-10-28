@@ -93,7 +93,7 @@ public class AnadirEventoActivity extends AdminEventsActivity{
             EditText nombre = findViewById(R.id.nombre_evento_edit);
             EditText descripcion = findViewById(R.id.descripcion_edit);
             EditText tipo = findViewById(R.id.tipo_edit);
-            TextView creador = findViewById(R.id.emailUsuarioMenu);
+            TextView creador = findViewById(R.id.tipo_creador);
             EditText fechaInicio = findViewById(R.id.fechaInicioEvento);
             EditText horaInicio = findViewById(R.id.horaInicioEvento);
             EditText fechaFin = findViewById(R.id.fechaFinEvento);
@@ -134,5 +134,10 @@ public class AnadirEventoActivity extends AdminEventsActivity{
                 //handler.postDelayed(() -> startActivity(new Intent(AnadirUsuarioActivity.this, AdminUsersActivity.class)), 5000);
             }
         });
+    }
+    //funcion para ir hacia atras
+    public void retrocederPantalla(){
+        startActivity(new Intent(AnadirEventoActivity.this, AdminEventsActivity.class));
+        this.finish();
     }
 }

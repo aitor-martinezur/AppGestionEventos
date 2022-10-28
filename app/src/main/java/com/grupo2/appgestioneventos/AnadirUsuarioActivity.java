@@ -1,5 +1,6 @@
 package com.grupo2.appgestioneventos;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.EditText;
@@ -65,5 +66,10 @@ public class AnadirUsuarioActivity extends AdminUsersActivity {
                 //handler.postDelayed(() -> startActivity(new Intent(AnadirUsuarioActivity.this, AdminUsersActivity.class)), 5000);
             }
         });
+    }
+    //funcion para ir hacia atras
+    public void retrocederPantalla(){
+        startActivity(new Intent(AnadirUsuarioActivity.this, AdminUsersActivity.class));
+        this.finish();
     }
 }

@@ -88,7 +88,6 @@ public class ActualizarEventoActivity extends AdminEventsActivity{
             EditText nombre = findViewById(R.id.nombre_evento_edit_actu);
             EditText descripcion = findViewById(R.id.descripcion_edit_actu);
             EditText tipo = findViewById(R.id.tipo_edit_actu);
-            TextView creador = findViewById(R.id.emailUsuarioMenu);
             EditText fechaInicio = findViewById(R.id.fecha_evento_edit_actu);
             EditText horaInicio = findViewById(R.id.hora_evento_edit_actu);
             EditText fechaFin = findViewById(R.id.fecha_fin_edit_actu);
@@ -97,7 +96,6 @@ public class ActualizarEventoActivity extends AdminEventsActivity{
             String nuevoNombre = nombre.getText().toString();
             String nuevaDescripcion = descripcion.getText().toString();
             String nuevoTipo = tipo.getText().toString();
-            String nuevoCreador = creador.getText().toString();
             String nuevaFechaIn = fechaInicio.getText().toString();
             String nuevaHoraIn = horaInicio.getText().toString();
             String nuevaFechaFin = fechaFin.getText().toString();
@@ -110,7 +108,7 @@ public class ActualizarEventoActivity extends AdminEventsActivity{
             for (int i=0; i<eventos.size(); i++){
                 if(nuevoNombre.equals(eventos.get(i).getNombre())){
                     //crea el nuevo contacto y lo actualiza
-                    Evento evento = new Evento(eventos.get(i).getId(), nuevoNombre, nuevaDescripcion, nuevoTipo, nuevoCreador, nuevaFechaHoraIn, nuevaFechaHoraFin);
+                    Evento evento = new Evento(eventos.get(i).getId(), nuevoNombre, nuevaDescripcion, nuevoTipo, eventos.get(i).getCreador(), nuevaFechaHoraIn, nuevaFechaHoraFin);
                     FuncionesEventos.actualizarEvento(evento, db);
                     Snackbar.make(view, "Evento actualizado.", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
@@ -122,5 +120,10 @@ public class ActualizarEventoActivity extends AdminEventsActivity{
                         .setAction("Action", null).show();
             }
         });
+    }
+    //funcion para ir hacia atras
+    public void retrocederPantalla(){
+        startActivity(new Intent(ActualizarEventoActivity.this, AdminEventsActivity.class));
+        this.finish();
     }
 }

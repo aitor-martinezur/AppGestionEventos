@@ -27,7 +27,7 @@ public class FuncionesContactos {
     public static void crearContacto(Contacto nuevoContacto, FirebaseFirestore db){
         // Add a new document with a generated id.
         Map<String, Object> data = new HashMap<>();
-        data.put("id", nuevoContacto.getId());
+        data.put("id", String.valueOf(nuevoContacto.getId()));
         data.put("nombre", nuevoContacto.getNombre());
         data.put("apellido", nuevoContacto.getApellido());
         data.put("telefono", nuevoContacto.getTelefono());

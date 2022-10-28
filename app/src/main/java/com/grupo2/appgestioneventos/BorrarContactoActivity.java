@@ -1,5 +1,6 @@
 package com.grupo2.appgestioneventos;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -93,5 +94,10 @@ public class BorrarContactoActivity extends AdminContactsActivity{
                         .setAction("Action", null).show();
             }
         });
+    }
+    //funcion para ir hacia atras
+    public void retrocederPantalla(){
+        startActivity(new Intent(BorrarContactoActivity.this, AdminContactsActivity.class));
+        this.finish();
     }
 }

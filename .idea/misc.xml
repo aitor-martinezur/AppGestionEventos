@@ -24,7 +24,10 @@
         <entry key="..\:/Users/in2dm3/Documents/GitHub/AppGestionEventos/app/src/main/res/layout/activity_login.xml" value="0.358695652173913" />
         <entry key="..\:/Users/in2dm3/Documents/GitHub/AppGestionEventos/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
         <entry key="..\:/Users/in2dm3/Documents/GitHub/AppGestionEventos/app/src/main/res/layout/activity_menu.xml" value="0.21875" />
+        <entry key="..\:/Users/in2dm3/Documents/GitHub/AppGestionEventos/app/src/main/res/layout/addcontact.xml" value="0.223731884057971" />
+        <entry key="..\:/Users/in2dm3/Documents/GitHub/AppGestionEventos/app/src/main/res/layout/addevents.xml" value="0.33" />
         <entry key="..\:/Users/in2dm3/Documents/GitHub/AppGestionEventos/app/src/main/res/layout/adduser.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/in2dm3/Documents/GitHub/AppGestionEventos/app/src/main/res/layout/admincontact.xml" value="0.223731884057971" />
         <entry key="..\:/Users/in2dm3/Documents/GitHub/AppGestionEventos/app/src/main/res/layout/adminevents.xml" value="0.33" />
         <entry key="..\:/Users/in2dm3/Documents/GitHub/AppGestionEventos/app/src/main/res/layout/adminusers.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/in2dm3/Documents/GitHub/AppGestionEventos/app/src/main/res/layout/app_bar_menu.xml" value="0.2949438202247191" />
@@ -40,7 +43,7 @@
         <entry key="..\:/Users/in2dm3/Documents/GitHub/AppGestionEventos/app/src/main/res/layout/pantalla_principal.xml" value="0.358695652173913" />
         <entry key="..\:/Users/in2dm3/Documents/GitHub/AppGestionEventos/app/src/main/res/layout/toolbar.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/in2dm3/Documents/GitHub/AppGestionEventos/app/src/main/res/layout/updatecontact.xml" value="0.17831813576494426" />
-        <entry key="..\:/Users/in2dm3/Documents/GitHub/AppGestionEventos/app/src/main/res/layout/updateevents.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/in2dm3/Documents/GitHub/AppGestionEventos/app/src/main/res/layout/updateevents.xml" value="0.33" />
         <entry key="..\:/Users/in2dm3/Documents/GitHub/AppGestionEventos/app/src/main/res/layout/updateuser.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/in2dm3/Documents/GitHub/AppGestionEventos/app/src/main/res/menu/activity_menu_drawer.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/in2dm3/Documents/GitHub/AppGestionEventos/app/src/main/res/menu/menu.xml" value="0.36666666666666664" />
@@ -72,7 +75,6 @@
         <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/logout.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/nav_header_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/showevents.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/toolbar.xml" value="0.33" />
         <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/updatecontact.xml" value="0.358695652173913" />
         <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/updateevents.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/in2dm3/Documents/Jorge/DAM/NOTOCAR/AppGestionEventos/app/src/main/res/layout/updateuser.xml" value="0.36666666666666664" />
