@@ -103,7 +103,7 @@ public class AnadirContactoActivity extends AdminContactsActivity{
             int ultimoID=0;
             for (int i = 0; i< contactos.size(); i++){
                 if (contactos.get(i).getId()>ultimoID){
-                    ultimoID = (contactos.get(i).getId())+1;
+                    ultimoID = (contactos.get(i).getId());
                 }
             }
 
@@ -113,7 +113,7 @@ public class AnadirContactoActivity extends AdminContactsActivity{
                         .setAction("Action", null).show();
             }
             else{
-                Contacto contacto = new Contacto((ultimoID), nuevoNombre, nuevoApellido, nuevoTelefono, nuevoEmail);
+                Contacto contacto = new Contacto((ultimoID+1), nuevoNombre, nuevoApellido, nuevoTelefono, nuevoEmail);
                 FuncionesContactos.crearContacto(contacto, db);
                 Snackbar.make(view, "Contacto creado.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();

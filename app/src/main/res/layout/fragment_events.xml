@@ -6,16 +6,19 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="15dp"
+    android:background="@color/white"
+    android:theme="@style/Theme.AppCompat.Light"
     card_view:cardCornerRadius="8dp"
     card_view:cardElevation="8dp"
     card_view:cardUseCompatPadding="true"
-    android:background="@color/white"
-    android:theme="@style/Theme.AppCompat.Light"
     tools:context=".ui.Eventos.EventosFragment">
 
     //Separador
+
     <TextView></TextView>
+
     <TextView></TextView>
+
     <TextView></TextView>
 
     <TextView
@@ -60,7 +63,7 @@
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="581dp"
         android:background="#DAE8FC"
         android:padding="5dp">
 
@@ -79,14 +82,14 @@
             android:textColor="#000000" />
 
         <TextView
-            android:id="@+id/fechaEvento"
+            android:id="@+id/fechaHoraEvento"
             android:layout_width="wrap_content"
             android:layout_height="628dp"
             android:layout_weight="1"
             android:textColor="#000000" />
 
         <TextView
-            android:id="@+id/horaEvento"
+            android:id="@+id/tipoEvento"
             android:layout_width="wrap_content"
             android:layout_height="628dp"
             android:layout_weight="1"

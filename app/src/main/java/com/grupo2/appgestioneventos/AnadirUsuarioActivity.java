@@ -95,7 +95,7 @@ public class AnadirUsuarioActivity extends AdminUsersActivity {
                                 .setAction("Action", null).show();
                     }
                     else{
-                        Usuario usuario = new Usuario(ultimoID+1, nuevoEmail, nuevaContrasena, nuevoNombre, nuevoApellido);
+                        Usuario usuario = new Usuario(ultimoID, nuevoEmail, nuevaContrasena, nuevoNombre, nuevoApellido);
                         FuncionesUsuarios.crearUsuario(usuario, db);
                         Snackbar.make(v, "Usuario creado.", Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
