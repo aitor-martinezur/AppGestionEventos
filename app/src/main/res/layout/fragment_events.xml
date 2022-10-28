@@ -13,8 +13,6 @@
     card_view:cardUseCompatPadding="true"
     tools:context=".ui.Eventos.EventosFragment">
 
-    //Separador
-
     <TextView></TextView>
 
     <TextView></TextView>
